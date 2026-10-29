@@ -146,7 +146,7 @@ export class PhantomSystem extends createSystem({
   private blobbyObject!: Object3D;
   private readonly blobbyHome = new Vector3();
   private blobbyPop = 0;
-  private blobbyBaseScale = 0.6;
+  private blobbyBaseScale = 0.75;
   private packContactObject!: Object3D;
   private cigaretteEntity!: Entity;
   private cigaretteObject!: Object3D;
@@ -309,7 +309,7 @@ export class PhantomSystem extends createSystem({
     this.packObject = this.world.requireSceneObject('pack');
     this.blobbyObject = this.world.requireSceneObject('blobby');
     this.blobbyHome.copy(this.blobbyObject.position);
-    this.blobbyBaseScale = this.blobbyObject.scale.x || 0.6;
+    this.blobbyBaseScale = this.blobbyObject.scale.x || 0.75;
     this.packContactObject = this.world.requireSceneObject('pack-contact');
     this.cigaretteObject = this.world.requireSceneObject('cigarette');
     this.hologramObject = this.world.requireSceneObject('body-hologram');
