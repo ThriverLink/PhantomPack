@@ -91,7 +91,16 @@
     border-color: #38525B;
     border-width: 1;
   }
-</style>
+
+  .ghost {
+    width: 296;
+    background-color: transparent;
+    color: #8FA5AD;
+    border-color: #2A4049;
+    border-width: 1;
+    font-size: 14;
+  }
+</style></style>
 <div class="panel">
   <div class="eyebrow" id="eyebrow">DAY 1 · A WIN</div>
   <div class="title" id="title">You stayed.</div>
@@ -101,8 +110,10 @@
     <div class="factlabel">YOUR BODY, RIGHT NOW</div>
     <div class="factbody" id="factBody">In 20 minutes, your heart rate starts to drop. In 12 hours, carbon monoxide levels return to normal.</div>
   </div>
+  <div class="body-soft" id="cta">Visit thriverlink.com — help for you or someone you love.</div>
   <div class="actions">
     <button id="btnBreathe" class="btn secondary">Go again</button>
     <button id="btnDone" class="btn primary">Done</button>
   </div>
+  <button id="btnQuit" class="btn ghost">Quit</button>
 </div>

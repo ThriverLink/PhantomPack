@@ -210,8 +210,10 @@ export class PhantomSystem extends createSystem({
   private endBody1!: UIKit.Text;
   private endBody2!: UIKit.Text;
   private endFact!: UIKit.Text;
+  private endCta!: UIKit.Text;
   private endBreathe!: UIKit.Text;
   private endDone!: UIKit.Text;
+  private endQuit!: UIKit.Text;
 
   private hintText!: UIKit.Text;
 
@@ -300,6 +302,12 @@ export class PhantomSystem extends createSystem({
   private readonly onReceiptDone = () => this.finishReceipt();
   private readonly onBreathe = () => this.restart();
   private readonly onDone = () => this.showThankYou();
+  private readonly onQuit = () => {
+    this.audio.ensure();
+    this.audio.click();
+    this.world.exitXR();
+    this.showThankYou();
+  };
 
   init(): void {
     this.sessionEntity = this.world.requireSceneEntity('session');
@@ -506,8 +514,10 @@ export class PhantomSystem extends createSystem({
     this.endBody1 = this.endPanel.requireElementById<UIKit.Text>('body1');
     this.endBody2 = this.endPanel.requireElementById<UIKit.Text>('body2');
     this.endFact = this.endPanel.requireElementById<UIKit.Text>('factBody');
+    this.endCta = this.endPanel.requireElementById<UIKit.Text>('cta');
     this.endBreathe = this.endPanel.requireElementById<UIKit.Text>('btnBreathe');
     this.endDone = this.endPanel.requireElementById<UIKit.Text>('btnDone');
+    this.endQuit = this.endPanel.requireElementById<UIKit.Text>('btnQuit');
 
     this.hintText = this.hintPanel.requireElementById<UIKit.Text>('hintText');
 
@@ -540,6 +550,7 @@ export class PhantomSystem extends createSystem({
     bind(this.receiptDone, this.onReceiptDone);
     bind(this.endBreathe, this.onBreathe);
     bind(this.endDone, this.onDone);
+    bind(this.endQuit, this.onQuit);
 
     this.queries.heldCigarette.subscribe('qualify', () => {
       this.held = true;
@@ -761,6 +772,11 @@ export class PhantomSystem extends createSystem({
     this.setText(this.endBreathe, 'Start over');
     this.endBreathe.setProperties({ display: 'flex' });
     this.endDone.setProperties({ display: 'none' });
+    this.endQuit.setProperties({ display: 'none' });
+    this.setText(
+      this.endCta,
+      'Visit thriverlink.com — help for you or someone you love.',
+    );
   }
 
   private enterPhase(phase: Phase): void {
@@ -1142,6 +1158,12 @@ export class PhantomSystem extends createSystem({
     this.endBreathe.setProperties({ display: 'flex' });
     this.setText(this.endDone, 'Done');
     this.endDone.setProperties({ display: 'flex' });
+    this.setText(this.endQuit, 'Quit');
+    this.endQuit.setProperties({ display: 'flex' });
+    this.setText(
+      this.endCta,
+      'Visit thriverlink.com — help for you or someone you love.',
+    );
     this.setText(
       this.endFact,
       'In 20 minutes, your heart rate starts to drop. In 12 hours, carbon monoxide levels return to normal.',
@@ -1154,7 +1176,7 @@ export class PhantomSystem extends createSystem({
           this.endBody1,
           "That's $8 and about 6.7 hours of damage you didn't spend.",
         );
-        this.setText(this.endBody2, 'The urge will come back. So will you.');
+        this.setText(this.endBody2, 'Sometimes this is how you win. The urge will come back — so will you.');
         break;
       case 'crushed':
         this.setText(this.endTitle, 'You crushed it.');
@@ -1162,7 +1184,7 @@ export class PhantomSystem extends createSystem({
           this.endBody1,
           "You smoked the rehearsal, then chose to stop. That's the skill.",
         );
-        this.setText(this.endBody2, 'The urge will come back. So will you.');
+        this.setText(this.endBody2, 'Sometimes this is how you win. The urge will come back — so will you.');
         break;
       case 'declined':
         this.setText(this.endTitle, 'You left it on the shelf.');
@@ -1170,7 +1192,7 @@ export class PhantomSystem extends createSystem({
           this.endBody1,
           "You didn't spend the $8. You didn't spend the 6.7 hours.",
         );
-        this.setText(this.endBody2, 'The urge will come back. So will you.');
+        this.setText(this.endBody2, 'Sometimes this is how you win. The urge will come back — so will you.');
         break;
       case 'closed':
         this.setText(this.endTitle, 'You closed it.');
@@ -1178,7 +1200,7 @@ export class PhantomSystem extends createSystem({
           this.endBody1,
           "You practiced the pause. That's the skill.",
         );
-        this.setText(this.endBody2, 'The urge will come back. So will you.');
+        this.setText(this.endBody2, 'Sometimes this is how you win. The urge will come back — so will you.');
         break;
       case 'stopped':
         this.setText(
@@ -1193,7 +1215,7 @@ export class PhantomSystem extends createSystem({
             ? "You noticed the urge and put it down. That's the skill."
             : `You took ${this.puffs} puff${this.puffs === 1 ? '' : 's'} and then chose to stop. That's the skill.`,
         );
-        this.setText(this.endBody2, 'The urge will come back. So will you.');
+        this.setText(this.endBody2, 'Sometimes this is how you win. The urge will come back — so will you.');
         break;
       default:
         break;
