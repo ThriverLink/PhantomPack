@@ -313,6 +313,14 @@ export class PhantomSystem extends createSystem({
     this.hologramObject = this.world.requireSceneObject('body-hologram');
     this.walletObject = this.world.requireSceneObject('wallet');
     this.emberObject = this.world.requireSceneObject('ember');
+    // The floating "atom" companion (core + two rings) is decorative only;
+    // hide its visible parts so it stops cluttering the view, but keep the
+    // warm point light that lights the table.
+    for (const child of this.emberObject.children) {
+      if (!(child instanceof PointLight)) {
+        child.visible = false;
+      }
+    }
     this.grabSystem = this.world.getSystem(GrabSystem);
 
     this.brandFrameObject = this.world.requireSceneObject('brand-frame');

@@ -545,9 +545,9 @@
       "name": "Blobby",
       "transform": {
         "position": [
-          0.72,
-          1.2,
-          -1.5
+          -1.05,
+          1.28,
+          -1.05
         ],
         "rotationDeg": [
           0,
