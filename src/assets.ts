@@ -41,6 +41,11 @@ export default defineAssets({
   'body-hologram': createBodyHologram(),
   ember: createEmber(),
   'fx-root': createFxRoot(),
+  blobby: {
+    url: publicAssetUrl('models/blobby.glb'),
+    type: AssetType.GLTF,
+    name: 'Blobby',
+  },
   'main-panel': uikitml('main.uikitml', 'Main Panel'),
   'fact-panel': uikitml('fact.uikitml', 'Fact Panel'),
   'receipt-panel': uikitml('receipt.uikitml', 'Receipt Panel'),

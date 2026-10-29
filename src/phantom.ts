@@ -143,6 +143,9 @@ export class PhantomSystem extends createSystem({
 }) {
   private sessionEntity!: Entity;
   private packObject!: Object3D;
+  private blobbyObject!: Object3D;
+  private readonly blobbyHome = new Vector3();
+  private blobbyPop = 0;
   private packContactObject!: Object3D;
   private cigaretteEntity!: Entity;
   private cigaretteObject!: Object3D;
@@ -303,6 +306,8 @@ export class PhantomSystem extends createSystem({
     this.hologramEntity = this.world.requireSceneEntity('body-hologram');
 
     this.packObject = this.world.requireSceneObject('pack');
+    this.blobbyObject = this.world.requireSceneObject('blobby');
+    this.blobbyHome.copy(this.blobbyObject.position);
     this.packContactObject = this.world.requireSceneObject('pack-contact');
     this.cigaretteObject = this.world.requireSceneObject('cigarette');
     this.hologramObject = this.world.requireSceneObject('body-hologram');
@@ -409,6 +414,7 @@ export class PhantomSystem extends createSystem({
     this.animateCash(delta);
     this.animateCrush(delta);
     this.animateDesktopHold();
+    this.animateBlobby(delta, time);
     this.detectPuff(delta);
     this.particles.update(delta);
 
@@ -753,6 +759,7 @@ export class PhantomSystem extends createSystem({
     }
     this.currentPhase = phase;
     this.sessionEntity.setValue(Session, 'phase', phase);
+    this.blobbyPop = 1;
 
     switch (phase) {
       case Phase.Shop:
@@ -1306,6 +1313,41 @@ export class PhantomSystem extends createSystem({
     this.mouthTime = 0;
     if (distance > MOUTH_RADIUS + 0.06) {
       this.puffLatched = false;
+    }
+  }
+
+  /**
+   * Blobby, the coach. One unified mesh with no rig, so the life comes from
+   * whole-body motion: bob, sway, a look-at the player, a pop on every phase
+   * change, a slump on the receipt, and a wobble of celebration at the end.
+   */
+  private animateBlobby(delta: number, time: number): void {
+    if (!this.blobbyObject) {
+      return;
+    }
+    if (this.blobbyPop > 0) {
+      this.blobbyPop = Math.max(0, this.blobbyPop - delta * 1.4);
+    }
+    const pop = 1 + Math.sin(this.blobbyPop * Math.PI) * 0.22;
+
+    // Look toward the player, with a gentle idle sway.
+    this.blobbyObject.lookAt(this.world.camera.position);
+    this.blobbyObject.rotateY(Math.sin(time * 0.7) * 0.06);
+    this.blobbyObject.position.y =
+      this.blobbyHome.y + Math.sin(time * 1.5) * 0.035;
+    this.blobbyObject.scale.setScalar(pop);
+
+    if (this.currentPhase === Phase.Receipt) {
+      // Slump: flatten slightly, lean forward.
+      this.blobbyObject.scale.y *= 0.86;
+      this.blobbyObject.rotation.x = 0.18;
+    } else if (this.currentPhase === Phase.End) {
+      // Celebrate: wobble.
+      this.blobbyObject.rotation.z = Math.sin(time * 4.2) * 0.16;
+      this.blobbyObject.rotation.x = 0;
+    } else {
+      this.blobbyObject.rotation.x = 0;
+      this.blobbyObject.rotation.z = 0;
     }
   }
 

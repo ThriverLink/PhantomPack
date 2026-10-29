@@ -8,3 +8,280 @@
   ➜  Local:   https://localhost:8081/
   ➜  Network: https://192.168.0.45:8081/
 🖥️  IWSDK: Using hardware GPU (metal)
+8:32:39 AM [vite] (client) page reload src/assets.ts
+8:32:48 AM [vite] (client) page reload src/phantom.ts
+8:32:49 AM [vite] (client) Pre-transform error: Transform failed with 1 error:
+/Users/elton/Desktop/ThriverSmoke/src/phantom.ts:305:61: ERROR: Syntax error "n"
+  Plugin: vite:esbuild
+  File: /Users/elton/Desktop/ThriverSmoke/src/phantom.ts:305:61
+  
+  Syntax error "n"
+  303 |      this.hologramEntity = this.world.requireSceneEntity('body-hologram');
+  304 |  
+  305 |  ...   this.packObject = this.world.requireSceneObject('pack');\n    this.blobbyObject = this.world.requireSceneObject...
+      |                                                                 ^
+  306 |      this.packContactObject = this.world.requireSceneObject('pack-contact');
+  307 |      this.cigaretteObject = this.world.requireSceneObject('cigarette');
+  
+8:32:49 AM [vite] Internal server error: Transform failed with 1 error:
+/Users/elton/Desktop/ThriverSmoke/src/phantom.ts:305:61: ERROR: Syntax error "n"
+  Plugin: vite:esbuild
+  File: /Users/elton/Desktop/ThriverSmoke/src/phantom.ts:305:61
+  
+  Syntax error "n"
+  303 |      this.hologramEntity = this.world.requireSceneEntity('body-hologram');
+  304 |  
+  305 |  ...   this.packObject = this.world.requireSceneObject('pack');\n    this.blobbyObject = this.world.requireSceneObject...
+      |                                                                 ^
+  306 |      this.packContactObject = this.world.requireSceneObject('pack-contact');
+  307 |      this.cigaretteObject = this.world.requireSceneObject('cigarette');
+  
+      at failureErrorWithLog (/Users/elton/Desktop/ThriverSmoke/node_modules/esbuild/lib/main.js:1752:15)
+      at /Users/elton/Desktop/ThriverSmoke/node_modules/esbuild/lib/main.js:1019:50
+      at responseCallbacks.<computed> (/Users/elton/Desktop/ThriverSmoke/node_modules/esbuild/lib/main.js:886:9)
+      at handleIncomingPacket (/Users/elton/Desktop/ThriverSmoke/node_modules/esbuild/lib/main.js:941:12)
+      at Socket.readFromStdout (/Users/elton/Desktop/ThriverSmoke/node_modules/esbuild/lib/main.js:864:7)
+      at Socket.emit (node:events:509:20)
+      at addChunk (node:internal/streams/readable:564:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:515:3)
+      at Readable.push (node:internal/streams/readable:395:5)
+      at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)
+8:32:49 AM [vite] (client) page reload src/phantom.ts
+8:32:50 AM [vite] (client) Pre-transform error: Transform failed with 1 error:
+/Users/elton/Desktop/ThriverSmoke/src/phantom.ts:145:33: ERROR: Syntax error "n"
+  Plugin: vite:esbuild
+  File: /Users/elton/Desktop/ThriverSmoke/src/phantom.ts:145:33
+  
+  Syntax error "n"
+  143 |  }) {
+  144 |    private sessionEntity!: Entity;
+  145 |    private packObject!: Object3D;\n  private blobbyObject!: Object3D;
+      |                                   ^
+  146 |    private packContactObject!: Object3D;
+  147 |    private cigaretteEntity!: Entity;
+  
+8:32:50 AM [vite] Internal server error: Transform failed with 1 error:
+/Users/elton/Desktop/ThriverSmoke/src/phantom.ts:145:33: ERROR: Syntax error "n"
+  Plugin: vite:esbuild
+  File: /Users/elton/Desktop/ThriverSmoke/src/phantom.ts:145:33
+  
+  Syntax error "n"
+  143 |  }) {
+  144 |    private sessionEntity!: Entity;
+  145 |    private packObject!: Object3D;\n  private blobbyObject!: Object3D;
+      |                                   ^
+  146 |    private packContactObject!: Object3D;
+  147 |    private cigaretteEntity!: Entity;
+  
+      at failureErrorWithLog (/Users/elton/Desktop/ThriverSmoke/node_modules/esbuild/lib/main.js:1752:15)
+      at /Users/elton/Desktop/ThriverSmoke/node_modules/esbuild/lib/main.js:1019:50
+      at responseCallbacks.<computed> (/Users/elton/Desktop/ThriverSmoke/node_modules/esbuild/lib/main.js:886:9)
+      at handleIncomingPacket (/Users/elton/Desktop/ThriverSmoke/node_modules/esbuild/lib/main.js:941:12)
+      at Socket.readFromStdout (/Users/elton/Desktop/ThriverSmoke/node_modules/esbuild/lib/main.js:864:7)
+      at Socket.emit (node:events:509:20)
+      at addChunk (node:internal/streams/readable:564:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:515:3)
+      at Readable.push (node:internal/streams/readable:395:5)
+      at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)
+8:33:05 AM [vite] (client) page reload src/phantom.ts
+8:33:06 AM [vite] (client) Pre-transform error: Transform failed with 1 error:
+/Users/elton/Desktop/ThriverSmoke/src/phantom.ts:145:33: ERROR: Syntax error "n"
+  Plugin: vite:esbuild
+  File: /Users/elton/Desktop/ThriverSmoke/src/phantom.ts:145:33
+  
+  Syntax error "n"
+  143 |  }) {
+  144 |    private sessionEntity!: Entity;
+  145 |    private packObject!: Object3D;\n  private blobbyObject!: Object3D;\n  private readonly blobbyHome = new Vector3();\...
+      |                                   ^
+  146 |    private packContactObject!: Object3D;
+  147 |    private cigaretteEntity!: Entity;
+  
+8:33:06 AM [vite] Internal server error: Transform failed with 1 error:
+/Users/elton/Desktop/ThriverSmoke/src/phantom.ts:145:33: ERROR: Syntax error "n"
+  Plugin: vite:esbuild
+  File: /Users/elton/Desktop/ThriverSmoke/src/phantom.ts:145:33
+  
+  Syntax error "n"
+  143 |  }) {
+  144 |    private sessionEntity!: Entity;
+  145 |    private packObject!: Object3D;\n  private blobbyObject!: Object3D;\n  private readonly blobbyHome = new Vector3();\...
+      |                                   ^
+  146 |    private packContactObject!: Object3D;
+  147 |    private cigaretteEntity!: Entity;
+  
+      at failureErrorWithLog (/Users/elton/Desktop/ThriverSmoke/node_modules/esbuild/lib/main.js:1752:15)
+      at /Users/elton/Desktop/ThriverSmoke/node_modules/esbuild/lib/main.js:1019:50
+      at responseCallbacks.<computed> (/Users/elton/Desktop/ThriverSmoke/node_modules/esbuild/lib/main.js:886:9)
+      at handleIncomingPacket (/Users/elton/Desktop/ThriverSmoke/node_modules/esbuild/lib/main.js:941:12)
+      at Socket.readFromStdout (/Users/elton/Desktop/ThriverSmoke/node_modules/esbuild/lib/main.js:864:7)
+      at Socket.emit (node:events:509:20)
+      at addChunk (node:internal/streams/readable:564:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:515:3)
+      at Readable.push (node:internal/streams/readable:395:5)
+      at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)
+8:33:07 AM [vite] (client) page reload src/phantom.ts
+8:33:08 AM [vite] (client) Pre-transform error: Transform failed with 1 error:
+/Users/elton/Desktop/ThriverSmoke/src/phantom.ts:145:33: ERROR: Syntax error "n"
+  Plugin: vite:esbuild
+  File: /Users/elton/Desktop/ThriverSmoke/src/phantom.ts:145:33
+  
+  Syntax error "n"
+  143 |  }) {
+  144 |    private sessionEntity!: Entity;
+  145 |    private packObject!: Object3D;\n  private blobbyObject!: Object3D;\n  private readonly blobbyHome = new Vector3();\...
+      |                                   ^
+  146 |    private packContactObject!: Object3D;
+  147 |    private cigaretteEntity!: Entity;
+  
+8:33:08 AM [vite] Internal server error: Transform failed with 1 error:
+/Users/elton/Desktop/ThriverSmoke/src/phantom.ts:145:33: ERROR: Syntax error "n"
+  Plugin: vite:esbuild
+  File: /Users/elton/Desktop/ThriverSmoke/src/phantom.ts:145:33
+  
+  Syntax error "n"
+  143 |  }) {
+  144 |    private sessionEntity!: Entity;
+  145 |    private packObject!: Object3D;\n  private blobbyObject!: Object3D;\n  private readonly blobbyHome = new Vector3();\...
+      |                                   ^
+  146 |    private packContactObject!: Object3D;
+  147 |    private cigaretteEntity!: Entity;
+  
+      at failureErrorWithLog (/Users/elton/Desktop/ThriverSmoke/node_modules/esbuild/lib/main.js:1752:15)
+      at /Users/elton/Desktop/ThriverSmoke/node_modules/esbuild/lib/main.js:1019:50
+      at responseCallbacks.<computed> (/Users/elton/Desktop/ThriverSmoke/node_modules/esbuild/lib/main.js:886:9)
+      at handleIncomingPacket (/Users/elton/Desktop/ThriverSmoke/node_modules/esbuild/lib/main.js:941:12)
+      at Socket.readFromStdout (/Users/elton/Desktop/ThriverSmoke/node_modules/esbuild/lib/main.js:864:7)
+      at Socket.emit (node:events:509:20)
+      at addChunk (node:internal/streams/readable:564:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:515:3)
+      at Readable.push (node:internal/streams/readable:395:5)
+      at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)
+8:33:16 AM [vite] (client) page reload src/phantom.ts
+8:33:17 AM [vite] (client) Pre-transform error: Transform failed with 1 error:
+/Users/elton/Desktop/ThriverSmoke/src/phantom.ts:145:33: ERROR: Syntax error "n"
+  Plugin: vite:esbuild
+  File: /Users/elton/Desktop/ThriverSmoke/src/phantom.ts:145:33
+  
+  Syntax error "n"
+  143 |  }) {
+  144 |    private sessionEntity!: Entity;
+  145 |    private packObject!: Object3D;\n  private blobbyObject!: Object3D;\n  private readonly blobbyHome = new Vector3();\...
+      |                                   ^
+  146 |    private packContactObject!: Object3D;
+  147 |    private cigaretteEntity!: Entity;
+  
+8:33:17 AM [vite] Internal server error: Transform failed with 1 error:
+/Users/elton/Desktop/ThriverSmoke/src/phantom.ts:145:33: ERROR: Syntax error "n"
+  Plugin: vite:esbuild
+  File: /Users/elton/Desktop/ThriverSmoke/src/phantom.ts:145:33
+  
+  Syntax error "n"
+  143 |  }) {
+  144 |    private sessionEntity!: Entity;
+  145 |    private packObject!: Object3D;\n  private blobbyObject!: Object3D;\n  private readonly blobbyHome = new Vector3();\...
+      |                                   ^
+  146 |    private packContactObject!: Object3D;
+  147 |    private cigaretteEntity!: Entity;
+  
+      at failureErrorWithLog (/Users/elton/Desktop/ThriverSmoke/node_modules/esbuild/lib/main.js:1752:15)
+      at /Users/elton/Desktop/ThriverSmoke/node_modules/esbuild/lib/main.js:1019:50
+      at responseCallbacks.<computed> (/Users/elton/Desktop/ThriverSmoke/node_modules/esbuild/lib/main.js:886:9)
+      at handleIncomingPacket (/Users/elton/Desktop/ThriverSmoke/node_modules/esbuild/lib/main.js:941:12)
+      at Socket.readFromStdout (/Users/elton/Desktop/ThriverSmoke/node_modules/esbuild/lib/main.js:864:7)
+      at Socket.emit (node:events:509:20)
+      at addChunk (node:internal/streams/readable:564:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:515:3)
+      at Readable.push (node:internal/streams/readable:395:5)
+      at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)
+8:33:22 AM [vite] (client) page reload src/phantom.ts
+8:33:23 AM [vite] (client) Pre-transform error: Transform failed with 1 error:
+/Users/elton/Desktop/ThriverSmoke/src/phantom.ts:145:33: ERROR: Syntax error "n"
+  Plugin: vite:esbuild
+  File: /Users/elton/Desktop/ThriverSmoke/src/phantom.ts:145:33
+  
+  Syntax error "n"
+  143 |  }) {
+  144 |    private sessionEntity!: Entity;
+  145 |    private packObject!: Object3D;\n  private blobbyObject!: Object3D;\n  private readonly blobbyHome = new Vector3();\...
+      |                                   ^
+  146 |    private packContactObject!: Object3D;
+  147 |    private cigaretteEntity!: Entity;
+  
+8:33:23 AM [vite] Internal server error: Transform failed with 1 error:
+/Users/elton/Desktop/ThriverSmoke/src/phantom.ts:145:33: ERROR: Syntax error "n"
+  Plugin: vite:esbuild
+  File: /Users/elton/Desktop/ThriverSmoke/src/phantom.ts:145:33
+  
+  Syntax error "n"
+  143 |  }) {
+  144 |    private sessionEntity!: Entity;
+  145 |    private packObject!: Object3D;\n  private blobbyObject!: Object3D;\n  private readonly blobbyHome = new Vector3();\...
+      |                                   ^
+  146 |    private packContactObject!: Object3D;
+  147 |    private cigaretteEntity!: Entity;
+  
+      at failureErrorWithLog (/Users/elton/Desktop/ThriverSmoke/node_modules/esbuild/lib/main.js:1752:15)
+      at /Users/elton/Desktop/ThriverSmoke/node_modules/esbuild/lib/main.js:1019:50
+      at responseCallbacks.<computed> (/Users/elton/Desktop/ThriverSmoke/node_modules/esbuild/lib/main.js:886:9)
+      at handleIncomingPacket (/Users/elton/Desktop/ThriverSmoke/node_modules/esbuild/lib/main.js:941:12)
+      at Socket.readFromStdout (/Users/elton/Desktop/ThriverSmoke/node_modules/esbuild/lib/main.js:864:7)
+      at Socket.emit (node:events:509:20)
+      at addChunk (node:internal/streams/readable:564:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:515:3)
+      at Readable.push (node:internal/streams/readable:395:5)
+      at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)
+8:33:30 AM [vite] (client) page reload src/phantom.ts
+8:33:31 AM [vite] (client) Pre-transform error: Transform failed with 1 error:
+/Users/elton/Desktop/ThriverSmoke/src/phantom.ts:145:33: ERROR: Syntax error "n"
+  Plugin: vite:esbuild
+  File: /Users/elton/Desktop/ThriverSmoke/src/phantom.ts:145:33
+  
+  Syntax error "n"
+  143 |  }) {
+  144 |    private sessionEntity!: Entity;
+  145 |    private packObject!: Object3D;\n  private blobbyObject!: Object3D;\n  private readonly blobbyHome = new Vector3();\...
+      |                                   ^
+  146 |    private packContactObject!: Object3D;
+  147 |    private cigaretteEntity!: Entity;
+  
+8:33:31 AM [vite] Internal server error: Transform failed with 1 error:
+/Users/elton/Desktop/ThriverSmoke/src/phantom.ts:145:33: ERROR: Syntax error "n"
+  Plugin: vite:esbuild
+  File: /Users/elton/Desktop/ThriverSmoke/src/phantom.ts:145:33
+  
+  Syntax error "n"
+  143 |  }) {
+  144 |    private sessionEntity!: Entity;
+  145 |    private packObject!: Object3D;\n  private blobbyObject!: Object3D;\n  private readonly blobbyHome = new Vector3();\...
+      |                                   ^
+  146 |    private packContactObject!: Object3D;
+  147 |    private cigaretteEntity!: Entity;
+  
+      at failureErrorWithLog (/Users/elton/Desktop/ThriverSmoke/node_modules/esbuild/lib/main.js:1752:15)
+      at /Users/elton/Desktop/ThriverSmoke/node_modules/esbuild/lib/main.js:1019:50
+      at responseCallbacks.<computed> (/Users/elton/Desktop/ThriverSmoke/node_modules/esbuild/lib/main.js:886:9)
+      at handleIncomingPacket (/Users/elton/Desktop/ThriverSmoke/node_modules/esbuild/lib/main.js:941:12)
+      at Socket.readFromStdout (/Users/elton/Desktop/ThriverSmoke/node_modules/esbuild/lib/main.js:864:7)
+      at Socket.emit (node:events:509:20)
+      at addChunk (node:internal/streams/readable:564:12)
+      at readableAddChunkPushByteMode (node:internal/streams/readable:515:3)
+      at Readable.push (node:internal/streams/readable:395:5)
+      at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)
+8:33:52 AM [vite] (client) page reload src/phantom.ts
+
+🥽 IWSDK Dev Summary (Development):
+  - Device: metaQuest3
+  - Runtime injected: 1470.5KB
+  - Activation mode: localhost
+  - Workspace: enabled (WebSocket at /__iwer_mcp)
+  - Note: Runtime only activates on localhost/local networks
+
+
+🥽 IWSDK Dev Summary (Development):
+  - Device: metaQuest3
+  - Runtime injected: 1470.5KB
+  - Activation mode: localhost
+  - Workspace: enabled (WebSocket at /__iwer_mcp)
+  - Note: Runtime only activates on localhost/local networks
+
