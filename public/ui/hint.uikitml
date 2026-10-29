@@ -1,0 +1,33 @@
+<!-- Small in-world prompt that floats above the cigarette. -->
+<style>
+  .hint {
+    flex-direction: row;
+    align-items: center;
+    gap: 8;
+    padding-top: 9;
+    padding-bottom: 9;
+    padding-left: 13;
+    padding-right: 15;
+    background-color: #0D171C;
+    border-color: #38525B;
+    border-width: 1;
+    border-radius: 20;
+  }
+
+  .dot {
+    width: 7;
+    height: 7;
+    border-radius: 4;
+    background-color: #FFB25C;
+  }
+
+  .text {
+    color: #EAF2F3;
+    font-size: 14;
+    font-weight: 600;
+  }
+</style>
+<div class="hint">
+  <div class="dot"></div>
+  <div class="text" id="hintText">Pinch the cigarette</div>
+</div>

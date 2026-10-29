@@ -1,0 +1,100 @@
+<!-- A body fact that appears beside the scan while the cigarette burns. -->
+<style>
+  .panel {
+    flex-direction: column;
+    width: 280;
+    padding: 18;
+    gap: 9;
+    background-color: #0D171C;
+    border-color: #2A3E46;
+    border-width: 1;
+    border-radius: 18;
+  }
+
+  .toprow {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .eyebrow {
+    color: #FFB25C;
+    font-size: 9;
+    font-weight: 700;
+    letter-spacing: 1.3;
+  }
+
+  .dots {
+    flex-direction: row;
+    gap: 5;
+    align-items: center;
+  }
+
+  .dot {
+    width: 8;
+    height: 8;
+    border-radius: 4;
+    background-color: #2A3E46;
+  }
+
+  .title {
+    color: #F2F7F7;
+    font-size: 25;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  .body {
+    color: #C5D3D8;
+    font-size: 16;
+    line-height: 1.3;
+  }
+
+  .body-soft {
+    color: #8FA5AD;
+    font-size: 14;
+    line-height: 1.28;
+  }
+
+  .foot {
+    color: #6F858D;
+    font-size: 11;
+    line-height: 1.3;
+  }
+
+  .btn {
+    width: 244;
+    padding-top: 10;
+    padding-bottom: 10;
+    border-radius: 10;
+    font-size: 15;
+    font-weight: 700;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .ghost {
+    background-color: #0D171C;
+    color: #9CB0B7;
+    border-color: #263A42;
+    border-width: 1;
+  }
+</style>
+<div class="panel">
+  <div class="toprow">
+    <div class="eyebrow" id="eyebrow">PUFF 1 OF 4 · BRAIN</div>
+    <div class="dots">
+      <div class="dot" id="dot1"></div>
+      <div class="dot" id="dot2"></div>
+      <div class="dot" id="dot3"></div>
+      <div class="dot" id="dot4"></div>
+    </div>
+  </div>
+  <div class="title" id="title">10 seconds to your brain.</div>
+  <div class="body" id="body1">Nicotine reaches your brain in about 10 seconds.</div>
+  <div class="body" id="body2">Dopamine spikes — the reward your habit is chasing. It fades in minutes.</div>
+  <div class="body-soft" id="body3">Then your brain asks for more.</div>
+  <div class="foot" id="foot">This is a fake cigarette. The craving is real.</div>
+  <button id="btnStop" class="btn ghost">Stop here</button>
+</div>

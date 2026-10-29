@@ -1,0 +1,57 @@
+
+> thriversmoke@0.1.0 dev:runtime
+> vite
+
+
+  VITE v7.3.7  ready in 778 ms
+
+  ➜  Local:   https://localhost:8081/
+  ➜  Network: https://192.168.0.45:8081/
+🖥️  IWSDK: Using hardware GPU (metal)
+[browser:pageerror] TypeError: import("/src/scene-assets/materials.ts").textTexture is not a function
+    at logoNameplateText (https://localhost:8081/src/scene-assets/branding.scene-asset.ts:128:51)
+    at createBrandFrame (https://localhost:8081/src/scene-assets/branding.scene-asset.ts:113:12)
+    at https://localhost:8081/src/assets.ts:23:18
+[browser] [unhandledrejection] AssetLoadError: Failed to load asset "thriver-link-logo" from "/branding/thriver-link-logo.png": [object Event]
+    at AssetManager.loadAssetByType (https://localhost:8081/node_modules/@iwsdk/core/dist/asset/asset-manager.js?v=e42e5f6d:284:19)
+    at async Promise.all (index 0)
+    at async AssetManager.preloadAssets (https://localhost:8081/node_modules/@iwsdk/core/dist/asset/asset-manager.js?v=e42e5f6d:257:9)
+    at async RenderableAssetRegistry.preload (https://localhost:8081/node_modules/@iwsdk/core/dist/asset/asset-manager.js?v=e42e5f6d:93:9)
+[browser:pageerror] AssetLoadError: Failed to load asset "thriver-link-logo" from "/branding/thriver-link-logo.png": [object Event]
+    at AssetManager.loadAssetByType (https://localhost:8081/node_modules/@iwsdk/core/dist/asset/asset-manager.js?v=e42e5f6d:284:19)
+    at async Promise.all (index 0)
+    at async AssetManager.preloadAssets (https://localhost:8081/node_modules/@iwsdk/core/dist/asset/asset-manager.js?v=e42e5f6d:257:9)
+    at async RenderableAssetRegistry.preload (https://localhost:8081/node_modules/@iwsdk/core/dist/asset/asset-manager.js?v=e42e5f6d:93:9)
+[browser] [unhandledrejection] AssetLoadError: Failed to load asset "thriver-link-logo" from "/branding/thriver-link-logo.png": [object Event]
+    at AssetManager.loadAssetByType (https://localhost:8081/node_modules/@iwsdk/core/dist/asset/asset-manager.js?v=e42e5f6d:284:19)
+    at async Promise.all (index 0)
+    at async AssetManager.preloadAssets (https://localhost:8081/node_modules/@iwsdk/core/dist/asset/asset-manager.js?v=e42e5f6d:257:9)
+    at async RenderableAssetRegistry.preload (https://localhost:8081/node_modules/@iwsdk/core/dist/asset/asset-manager.js?v=e42e5f6d:93:9)
+[browser:pageerror] AssetLoadError: Failed to load asset "thriver-link-logo" from "/branding/thriver-link-logo.png": [object Event]
+    at AssetManager.loadAssetByType (https://localhost:8081/node_modules/@iwsdk/core/dist/asset/asset-manager.js?v=e42e5f6d:284:19)
+    at async Promise.all (index 0)
+    at async AssetManager.preloadAssets (https://localhost:8081/node_modules/@iwsdk/core/dist/asset/asset-manager.js?v=e42e5f6d:257:9)
+    at async RenderableAssetRegistry.preload (https://localhost:8081/node_modules/@iwsdk/core/dist/asset/asset-manager.js?v=e42e5f6d:93:9)
+[browser] [IWSDK Scene Editor] Failed to initialize: AssetLoadError: Failed to load asset "thriver-link-logo" from "/branding/thriver-link-logo.png": [object Event]
+    at AssetManager.loadAssetByType (https://localhost:8081/node_modules/@iwsdk/core/dist/asset/asset-manager.js?v=e42e5f6d:284:19)
+    at async Promise.all (index 0)
+    at async AssetManager.preloadAssets (https://localhost:8081/node_modules/@iwsdk/core/dist/asset/asset-manager.js?v=e42e5f6d:257:9)
+    at async RenderableAssetRegistry.preload (https://localhost:8081/node_modules/@iwsdk/core/dist/asset/asset-manager.js?v=e42e5f6d:93:9)
+    at async createEditorWorld (https://localhost:8081/@iwsdk-editor-runtime:7806:17)
+    at async init (https://localhost:8081/@iwsdk-editor-runtime:12372:3)
+
+🥽 IWSDK Dev Summary (Development):
+  - Device: metaQuest3
+  - Runtime injected: 1470.5KB
+  - Activation mode: localhost
+  - Workspace: enabled (WebSocket at /__iwer_mcp)
+  - Note: Runtime only activates on localhost/local networks
+
+
+🥽 IWSDK Dev Summary (Development):
+  - Device: metaQuest3
+  - Runtime injected: 1470.5KB
+  - Activation mode: localhost
+  - Workspace: enabled (WebSocket at /__iwer_mcp)
+  - Note: Runtime only activates on localhost/local networks
+

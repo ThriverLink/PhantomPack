@@ -1,0 +1,744 @@
+{
+  "authoring": {
+    "views": [
+      {
+        "fov": 60,
+        "id": "hero",
+        "position": [
+          0,
+          1.55,
+          0.18
+        ],
+        "projection": "perspective",
+        "role": "hero",
+        "target": [
+          0,
+          1.08,
+          -1.25
+        ]
+      }
+    ]
+  },
+  "components": {
+    "com.iwsdk.components.DomeGradient": {
+      "azimuthDeg": -28,
+      "dither": true,
+      "elevationDeg": 18,
+      "equator": [
+        0.03,
+        0.045,
+        0.06,
+        1
+      ],
+      "ground": [
+        0.01,
+        0.012,
+        0.015,
+        1
+      ],
+      "sky": [
+        0.015,
+        0.025,
+        0.045,
+        1
+      ]
+    },
+    "com.iwsdk.components.IBLGradient": {
+      "equator": [
+        0.12,
+        0.14,
+        0.18,
+        1
+      ],
+      "ground": [
+        0.03,
+        0.03,
+        0.04,
+        1
+      ],
+      "intensity": 0.65,
+      "sky": [
+        0.22,
+        0.3,
+        0.42,
+        1
+      ]
+    }
+  },
+  "environment": {
+    "exposure": 1.15,
+    "shadowMapType": "pcf",
+    "shadows": true,
+    "toneMapping": "aces"
+  },
+  "nodes": [
+    {
+      "content": {
+        "asset": "room",
+        "receiveShadow": true,
+        "type": "asset"
+      },
+      "id": "room",
+      "name": "Quiet Room"
+    },
+    {
+      "components": {
+        "Session": {
+          "bought": false,
+          "craving": 5,
+          "lastFact": -1,
+          "opened": false,
+          "phase": "shop",
+          "puffs": 0,
+          "streak": 0,
+          "wins": 0
+        }
+      },
+      "id": "session",
+      "name": "Session"
+    },
+    {
+      "content": {
+        "asset": "brand-frame",
+        "receiveShadow": true,
+        "type": "asset"
+      },
+      "id": "brand-frame",
+      "name": "ThriverLink Frame",
+      "transform": {
+        "position": [
+          2.3705,
+          1.737,
+          -3.212
+        ],
+        "rotationDeg": [
+          0,
+          0,
+          0
+        ],
+        "scale": 1
+      }
+    },
+    {
+      "content": {
+        "asset": "table",
+        "castShadow": true,
+        "receiveShadow": true,
+        "type": "asset"
+      },
+      "id": "table",
+      "name": "Table",
+      "transform": {
+        "position": [
+          0,
+          0,
+          -0.72
+        ]
+      }
+    },
+    {
+      "components": {
+        "ContactShadow": {
+          "height": 0.0015,
+          "opacity": 0.65,
+          "size": [
+            1.15,
+            1.15
+          ]
+        }
+      },
+      "id": "table-contact",
+      "name": "Table Contact Shadow",
+      "transform": {
+        "position": [
+          0,
+          0.002,
+          -0.72
+        ]
+      }
+    },
+    {
+      "content": {
+        "asset": "pack",
+        "castShadow": true,
+        "type": "asset"
+      },
+      "id": "pack",
+      "name": "Cigarette Pack",
+      "transform": {
+        "position": [
+          -0.2,
+          0.74,
+          -0.8
+        ],
+        "rotationDeg": [
+          0,
+          18,
+          0
+        ],
+        "scale": [
+          0.001,
+          0.001,
+          0.001
+        ]
+      }
+    },
+    {
+      "components": {
+        "ContactShadow": {
+          "height": 0.001,
+          "opacity": 0.5,
+          "size": [
+            0.13,
+            0.09
+          ]
+        }
+      },
+      "id": "pack-contact",
+      "name": "Pack Contact Shadow",
+      "transform": {
+        "position": [
+          -0.2,
+          0.742,
+          -0.8
+        ],
+        "scale": [
+          0.001,
+          0.001,
+          0.001
+        ]
+      }
+    },
+    {
+      "components": {
+        "Cigarette": {
+          "burn": 0,
+          "crushed": false,
+          "lit": false,
+          "puffs": 0
+        }
+      },
+      "content": {
+        "asset": "cigarette",
+        "type": "asset"
+      },
+      "id": "cigarette",
+      "name": "Fake Cigarette",
+      "transform": {
+        "position": [
+          -0.2,
+          0.855,
+          -0.8
+        ],
+        "rotationDeg": [
+          0,
+          18,
+          0
+        ],
+        "scale": [
+          0.001,
+          0.001,
+          0.001
+        ]
+      }
+    },
+    {
+      "content": {
+        "asset": "ashtray",
+        "castShadow": true,
+        "type": "asset"
+      },
+      "id": "ashtray",
+      "name": "Ashtray",
+      "transform": {
+        "position": [
+          0.22,
+          0.74,
+          -0.84
+        ],
+        "rotationDeg": [
+          0,
+          -12,
+          0
+        ]
+      }
+    },
+    {
+      "components": {
+        "ContactShadow": {
+          "height": 0.001,
+          "opacity": 0.5,
+          "size": [
+            0.19,
+            0.19
+          ]
+        }
+      },
+      "id": "ashtray-contact",
+      "name": "Ashtray Contact Shadow",
+      "transform": {
+        "position": [
+          0.22,
+          0.742,
+          -0.84
+        ]
+      }
+    },
+    {
+      "content": {
+        "asset": "lighter",
+        "castShadow": true,
+        "type": "asset"
+      },
+      "id": "lighter",
+      "name": "Lighter",
+      "transform": {
+        "position": [
+          0.17,
+          0.74,
+          -0.68
+        ],
+        "rotationDeg": [
+          0,
+          -20,
+          0
+        ]
+      }
+    },
+    {
+      "content": {
+        "asset": "wallet",
+        "castShadow": true,
+        "type": "asset"
+      },
+      "id": "wallet",
+      "name": "Fake Wallet",
+      "transform": {
+        "position": [
+          -0.37,
+          0.741,
+          -0.55
+        ],
+        "rotationDeg": [
+          0,
+          24,
+          0
+        ]
+      }
+    },
+    {
+      "components": {
+        "ContactShadow": {
+          "height": 0.001,
+          "opacity": 0.45,
+          "size": [
+            0.15,
+            0.12
+          ]
+        }
+      },
+      "id": "wallet-contact",
+      "name": "Wallet Contact Shadow",
+      "transform": {
+        "position": [
+          -0.37,
+          0.7425,
+          -0.55
+        ]
+      }
+    },
+    {
+      "content": {
+        "asset": "bin",
+        "castShadow": true,
+        "type": "asset"
+      },
+      "id": "bin",
+      "name": "Bin",
+      "transform": {
+        "position": [
+          0.68,
+          0,
+          -0.92
+        ],
+        "rotationDeg": [
+          0,
+          -14,
+          0
+        ]
+      }
+    },
+    {
+      "components": {
+        "ContactShadow": {
+          "height": 0.0015,
+          "opacity": 0.5,
+          "size": [
+            0.32,
+            0.32
+          ]
+        }
+      },
+      "id": "bin-contact",
+      "name": "Bin Contact Shadow",
+      "transform": {
+        "position": [
+          0.68,
+          0.002,
+          -0.92
+        ]
+      }
+    },
+    {
+      "content": {
+        "asset": "price-tag",
+        "type": "asset"
+      },
+      "id": "wallet-tag",
+      "name": "Wallet Tag",
+      "transform": {
+        "position": [
+          -0.37,
+          0.88,
+          -0.55
+        ],
+        "rotationDeg": [
+          -18,
+          24,
+          0
+        ],
+        "scale": 0.12
+      }
+    },
+    {
+      "content": {
+        "asset": "price-tag",
+        "type": "asset"
+      },
+      "id": "price-tag",
+      "name": "Pack Price Tag",
+      "transform": {
+        "position": [
+          -0.2,
+          0.99,
+          -0.8
+        ],
+        "rotationDeg": [
+          -18,
+          0,
+          0
+        ],
+        "scale": 0.001
+      }
+    },
+    {
+      "content": {
+        "asset": "lamp",
+        "type": "asset"
+      },
+      "id": "lamp",
+      "name": "Pendant Lamp",
+      "transform": {
+        "position": [
+          0,
+          3,
+          -0.72
+        ]
+      }
+    },
+    {
+      "components": {
+        "ContactShadow": {
+          "height": 0.0015,
+          "opacity": 0.55,
+          "size": [
+            0.55,
+            0.55
+          ]
+        }
+      },
+      "id": "plant-contact",
+      "name": "Plant Contact Shadow",
+      "transform": {
+        "position": [
+          -2.35,
+          0.002,
+          -2.45
+        ]
+      }
+    },
+    {
+      "components": {
+        "ContactShadow": {
+          "height": 0.0015,
+          "opacity": 0.55,
+          "size": [
+            1.3,
+            0.55
+          ]
+        }
+      },
+      "id": "sideboard-contact",
+      "name": "Sideboard Contact Shadow",
+      "transform": {
+        "position": [
+          2.35,
+          0.002,
+          -3
+        ]
+      }
+    },
+    {
+      "components": {
+        "Hologram": {
+          "active": false,
+          "intensity": 0,
+          "organ": "none"
+        }
+      },
+      "content": {
+        "asset": "body-hologram",
+        "type": "asset"
+      },
+      "id": "body-hologram",
+      "name": "Body Scan",
+      "transform": {
+        "position": [
+          0,
+          0.08,
+          -1.78
+        ],
+        "scale": 0.001
+      }
+    },
+    {
+      "components": {
+        "EmberState": {
+          "mood": "calm",
+          "pulse": 0
+        }
+      },
+      "content": {
+        "asset": "ember",
+        "type": "asset"
+      },
+      "id": "ember",
+      "name": "Ember",
+      "transform": {
+        "position": [
+          0.28,
+          1.28,
+          -0.62
+        ]
+      }
+    },
+    {
+      "content": {
+        "asset": "fx-root",
+        "type": "asset"
+      },
+      "id": "fx-root",
+      "name": "Effects"
+    },
+    {
+      "components": {
+        "RayInteractable": {}
+      },
+      "content": {
+        "asset": "main-panel",
+        "type": "asset"
+      },
+      "id": "main-panel",
+      "name": "Main Panel",
+      "transform": {
+        "position": [
+          -0.72,
+          1.28,
+          -1.12
+        ],
+        "rotationDeg": [
+          -8,
+          26,
+          0
+        ],
+        "scale": 0.19
+      }
+    },
+    {
+      "components": {
+        "RayInteractable": {}
+      },
+      "content": {
+        "asset": "fact-panel",
+        "type": "asset"
+      },
+      "id": "fact-panel",
+      "name": "Fact Panel",
+      "transform": {
+        "position": [
+          0.78,
+          1.26,
+          -1.32
+        ],
+        "rotationDeg": [
+          -6,
+          -30,
+          0
+        ],
+        "scale": 0.001
+      }
+    },
+    {
+      "components": {
+        "RayInteractable": {}
+      },
+      "content": {
+        "asset": "receipt-panel",
+        "type": "asset"
+      },
+      "id": "receipt-panel",
+      "name": "Receipt Panel",
+      "transform": {
+        "position": [
+          0,
+          1.26,
+          -1.18
+        ],
+        "rotationDeg": [
+          -5,
+          0,
+          0
+        ],
+        "scale": 0.001
+      }
+    },
+    {
+      "components": {
+        "RayInteractable": {}
+      },
+      "content": {
+        "asset": "end-panel",
+        "type": "asset"
+      },
+      "id": "end-panel",
+      "name": "End Panel",
+      "transform": {
+        "position": [
+          0,
+          1.26,
+          -1.14
+        ],
+        "rotationDeg": [
+          -5,
+          0,
+          0
+        ],
+        "scale": 0.001
+      }
+    },
+    {
+      "content": {
+        "asset": "hint-panel",
+        "type": "asset"
+      },
+      "id": "hint-panel",
+      "name": "Hint Panel",
+      "transform": {
+        "position": [
+          -0.2,
+          1.06,
+          -0.8
+        ],
+        "rotationDeg": [
+          -20,
+          0,
+          0
+        ],
+        "scale": 0.001
+      }
+    },
+    {
+      "components": {
+        "DirectionalLight": {
+          "castShadow": true,
+          "color": [
+            1,
+            0.86,
+            0.72,
+            1
+          ],
+          "intensity": 1.9,
+          "shadowBias": -0.0004,
+          "shadowCameraFar": 16,
+          "shadowCameraNear": 1,
+          "shadowCameraSize": 6,
+          "shadowMapSize": "2048",
+          "shadowNormalBias": 0.02,
+          "shadowRadius": 5
+        }
+      },
+      "id": "key-light",
+      "name": "Key Light",
+      "transform": {
+        "position": [
+          -2.5,
+          4.2,
+          1.4
+        ],
+        "rotationDeg": [
+          -62,
+          -24,
+          0
+        ]
+      }
+    },
+    {
+      "components": {
+        "PointLight": {
+          "color": [
+            0.45,
+            0.68,
+            1,
+            1
+          ],
+          "decay": 2,
+          "distance": 5,
+          "intensity": 1.6
+        }
+      },
+      "id": "window-fill",
+      "name": "Window Fill",
+      "transform": {
+        "position": [
+          0.7,
+          1.8,
+          -2.55
+        ]
+      }
+    },
+    {
+      "components": {
+        "HemisphereLight": {
+          "groundColor": [
+            0.22,
+            0.13,
+            0.08,
+            1
+          ],
+          "intensity": 0.5,
+          "skyColor": [
+            0.32,
+            0.45,
+            0.6,
+            1
+          ]
+        }
+      },
+      "id": "hemi",
+      "name": "Ambient Fill"
+    }
+  ],
+  "resources": {},
+  "units": "meters",
+  "version": "iwsdk.scene.v1"
+}

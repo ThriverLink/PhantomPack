@@ -1,0 +1,20 @@
+# Codex MCP configuration is populated after dependencies are installed.
+# Run `npx @iwsdk/cli adapter sync --tools codex` to register local MCP servers.
+
+# --- IWER managed (do not edit) ---
+[mcp_servers.iwsdk-runtime]
+command = "node"
+args = ["/Users/elton/Desktop/ThriverSmoke/node_modules/@iwsdk/cli/dist/cli.js", "mcp", "stdio"]
+default_tools_approval_mode = "approve"
+
+[mcp_servers.iwsdk-reference]
+command = "node"
+args = ["/Users/elton/Desktop/ThriverSmoke/node_modules/@iwsdk/reference/dist/cli.js"]
+default_tools_approval_mode = "approve"
+
+[mcp_servers.metavr]
+command = "node"
+args = ["/Users/elton/Desktop/ThriverSmoke/node_modules/@meta-quest/metavr/bin.js", "mcp", "server"]
+default_tools_approval_mode = "approve"
+
+# --- end IWER managed ---

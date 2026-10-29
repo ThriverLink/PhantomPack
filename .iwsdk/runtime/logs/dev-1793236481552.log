@@ -1,0 +1,26 @@
+
+> thriversmoke@0.1.0 dev:runtime
+> vite
+
+
+  VITE v7.3.7  ready in 1252 ms
+
+  ➜  Local:   https://localhost:8081/
+  ➜  Network: https://192.168.0.45:8081/
+🖥️  IWSDK: Using hardware GPU (metal)
+
+🥽 IWSDK Dev Summary (Development):
+  - Device: metaQuest3
+  - Runtime injected: 1470.5KB
+  - Activation mode: localhost
+  - Workspace: enabled (WebSocket at /__iwer_mcp)
+  - Note: Runtime only activates on localhost/local networks
+
+
+🥽 IWSDK Dev Summary (Development):
+  - Device: metaQuest3
+  - Runtime injected: 1470.5KB
+  - Activation mode: localhost
+  - Workspace: enabled (WebSocket at /__iwer_mcp)
+  - Note: Runtime only activates on localhost/local networks
+

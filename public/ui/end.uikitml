@@ -1,0 +1,108 @@
+<!-- Closing card with the streak and a body-recovery fact. -->
+<style>
+  .panel {
+    flex-direction: column;
+    width: 340;
+    padding: 22;
+    gap: 11;
+    background-color: #0D171C;
+    border-color: #2A3E46;
+    border-width: 1;
+    border-radius: 20;
+  }
+
+  .eyebrow {
+    color: #FFB25C;
+    font-size: 10;
+    font-weight: 700;
+    letter-spacing: 1.7;
+  }
+
+  .title {
+    color: #F2F7F7;
+    font-size: 31;
+    font-weight: 700;
+    line-height: 1.05;
+  }
+
+  .body {
+    color: #C5D3D8;
+    font-size: 17;
+    line-height: 1.3;
+  }
+
+  .body-soft {
+    color: #8FA5AD;
+    font-size: 15;
+    line-height: 1.28;
+  }
+
+  .factcard {
+    flex-direction: column;
+    width: 296;
+    padding: 14;
+    gap: 5;
+    background-color: #122027;
+    border-color: #2A4049;
+    border-width: 1;
+    border-radius: 12;
+  }
+
+  .factlabel {
+    color: #6FE3D2;
+    font-size: 9;
+    font-weight: 700;
+    letter-spacing: 1.3;
+  }
+
+  .factbody {
+    color: #DCE8E9;
+    font-size: 14;
+    line-height: 1.3;
+  }
+
+  .actions {
+    flex-direction: row;
+    gap: 8;
+  }
+
+  .btn {
+    width: 144;
+    padding-top: 12;
+    padding-bottom: 12;
+    border-radius: 10;
+    font-size: 16;
+    font-weight: 700;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .primary {
+    background-color: #FFB25C;
+    color: #101A1F;
+    border-color: #FFB25C;
+    border-width: 1;
+  }
+
+  .secondary {
+    background-color: #17262D;
+    color: #EAF2F3;
+    border-color: #38525B;
+    border-width: 1;
+  }
+</style>
+<div class="panel">
+  <div class="eyebrow" id="eyebrow">DAY 1 · A WIN</div>
+  <div class="title" id="title">You stayed.</div>
+  <div class="body" id="body1">You just practiced the pause. That's the skill.</div>
+  <div class="body-soft" id="body2">The urge will come back. So will you.</div>
+  <div class="factcard">
+    <div class="factlabel">YOUR BODY, RIGHT NOW</div>
+    <div class="factbody" id="factBody">In 20 minutes, your heart rate starts to drop. In 12 hours, carbon monoxide levels return to normal.</div>
+  </div>
+  <div class="actions">
+    <button id="btnBreathe" class="btn secondary">Go again</button>
+    <button id="btnDone" class="btn primary">Done</button>
+  </div>
+</div>

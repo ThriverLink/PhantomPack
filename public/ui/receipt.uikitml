@@ -1,0 +1,146 @@
+<!-- The damage receipt. Numbers are estimates, labeled in the footer. -->
+<style>
+  .panel {
+    flex-direction: column;
+    width: 380;
+    padding: 22;
+    gap: 11;
+    background-color: #0D171C;
+    border-color: #2A3E46;
+    border-width: 1;
+    border-radius: 20;
+  }
+
+  .eyebrow {
+    color: #FFB25C;
+    font-size: 10;
+    font-weight: 700;
+    letter-spacing: 1.7;
+  }
+
+  .title {
+    color: #F2F7F7;
+    font-size: 29;
+    font-weight: 700;
+    line-height: 1.08;
+  }
+
+  .subtitle {
+    color: #C5D3D8;
+    font-size: 16;
+    line-height: 1.3;
+  }
+
+  .stats {
+    flex-direction: row;
+    gap: 8;
+  }
+
+  .stat {
+    flex-direction: column;
+    width: 78;
+    padding: 10;
+    gap: 3;
+    background-color: #122027;
+    border-color: #263A42;
+    border-width: 1;
+    border-radius: 12;
+  }
+
+  .num {
+    color: #FFB25C;
+    font-size: 23;
+    font-weight: 700;
+  }
+
+  .lbl {
+    color: #8FA5AD;
+    font-size: 10;
+    font-weight: 600;
+  }
+
+  .rule {
+    width: 336;
+    height: 0.5;
+    background-color: #263A42;
+  }
+
+  .body {
+    color: #C5D3D8;
+    font-size: 15;
+    line-height: 1.3;
+  }
+
+  .body-soft {
+    color: #8FA5AD;
+    font-size: 13;
+    line-height: 1.28;
+  }
+
+  .foot {
+    color: #6F858D;
+    font-size: 11;
+    line-height: 1.3;
+  }
+
+  .actions {
+    flex-direction: row;
+    gap: 8;
+  }
+
+  .btn {
+    width: 106;
+    padding-top: 11;
+    padding-bottom: 11;
+    padding-left: 6;
+    padding-right: 6;
+    border-radius: 10;
+    font-size: 14;
+    font-weight: 700;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .primary {
+    background-color: #FFB25C;
+    color: #101A1F;
+    border-color: #FFB25C;
+    border-width: 1;
+  }
+
+  .secondary {
+    background-color: #17262D;
+    color: #EAF2F3;
+    border-color: #38525B;
+    border-width: 1;
+  }
+
+  .ghost {
+    background-color: #0D171C;
+    color: #9CB0B7;
+    border-color: #263A42;
+    border-width: 1;
+  }
+</style>
+<div class="panel">
+  <div class="eyebrow" id="eyebrow">THE RECEIPT</div>
+  <div class="title" id="title">This is what a real one costs.</div>
+  <div class="subtitle" id="subtitle">You took 4 puffs — about 0.4 of a cigarette.</div>
+  <div class="stats">
+    <div class="stat"><div class="num" id="stat1">8 min</div><div class="lbl">of life</div></div>
+    <div class="stat"><div class="num" id="stat2">4–8 mg</div><div class="lbl">tar</div></div>
+    <div class="stat"><div class="num" id="stat3">4–8 mg</div><div class="lbl">carbon monoxide</div></div>
+    <div class="stat"><div class="num" id="stat4">0.4–0.8 mg</div><div class="lbl">nicotine</div></div>
+  </div>
+  <div class="rule"></div>
+  <div class="body" id="body1">A whole pack: about 6.7 hours of life, 200–400 mg tar, $8, and 7,000 chemicals.</div>
+  <div class="body" id="body2">A pack a day for a year: roughly 101 days of life and $2,920.</div>
+  <div class="body-soft" id="body3">You are not a number. You are allowed to stop.</div>
+  <div class="foot">Estimates. Sources: UCL 2024, CDC, WHO.</div>
+  <div class="actions">
+    <button id="btnCrush" class="btn primary">Crush it</button>
+    <button id="btnAnother" class="btn secondary">Light another</button>
+    <button id="btnDone" class="btn ghost">I'm done</button>
+  </div>
+</div>

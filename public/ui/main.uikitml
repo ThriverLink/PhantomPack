@@ -1,0 +1,99 @@
+<!-- PHANTOM main conversation panel. All sizes are UIKit units (cm). -->
+<style>
+  .panel {
+    flex-direction: column;
+    width: 320;
+    padding: 20;
+    gap: 10;
+    background-color: #0D171C;
+    border-color: #2A3E46;
+    border-width: 1;
+    border-radius: 20;
+  }
+
+  .rule {
+    width: 278;
+    height: 0.5;
+    background-color: #FFB25C;
+  }
+
+  .eyebrow {
+    color: #FFB25C;
+    font-size: 10;
+    font-weight: 700;
+    letter-spacing: 1.6;
+  }
+
+  .title {
+    color: #F2F7F7;
+    font-size: 28;
+    font-weight: 700;
+    line-height: 1.08;
+  }
+
+  .body {
+    color: #C5D3D8;
+    font-size: 17;
+    line-height: 1.3;
+  }
+
+  .body-soft {
+    color: #8FA5AD;
+    font-size: 15;
+    line-height: 1.28;
+  }
+
+  .btn {
+    width: 278;
+    padding-top: 12;
+    padding-bottom: 12;
+    padding-left: 14;
+    padding-right: 14;
+    border-radius: 11;
+    font-size: 17;
+    font-weight: 700;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .primary {
+    background-color: #FFB25C;
+    color: #101A1F;
+    border-color: #FFB25C;
+    border-width: 1;
+  }
+
+  .secondary {
+    background-color: #17262D;
+    color: #EAF2F3;
+    border-color: #38525B;
+    border-width: 1;
+  }
+
+  .ghost {
+    background-color: #0D171C;
+    color: #9CB0B7;
+    border-color: #0D171C;
+    border-width: 1;
+  }
+
+  .foot {
+    color: #6F858D;
+    font-size: 12;
+    line-height: 1.3;
+  }
+</style>
+<div class="panel">
+  <div class="rule"></div>
+  <button id="btnEnter" class="btn secondary">Enter VR</button>
+  <div class="eyebrow" id="eyebrow">PHANTOM · A FAKE PACK</div>
+  <div class="title" id="title">Buy the pack. The money is fake.</div>
+  <div class="body" id="body1">A real pack costs about $8. Every one you take home lands on your tab.</div>
+  <div class="body" id="body2">A pack a day is $2,920 a year — a holiday, a laptop, or 101 days of life.</div>
+  <div class="body-soft" id="body3">Nothing here can hurt you. Everything here is a rehearsal.</div>
+  <button id="btn1" class="btn primary">Buy the pack — $8</button>
+  <button id="btn2" class="btn secondary">Show me the math</button>
+  <button id="btn3" class="btn ghost">Leave it on the shelf</button>
+  <div class="foot" id="foot">Seated · hands only · about 5 minutes</div>
+</div>

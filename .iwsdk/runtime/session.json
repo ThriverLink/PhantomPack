@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 2,
+  "sessionId": "8a2e53a5-4cf1-4820-acdc-b2cd763ff6f5",
+  "workspaceRoot": "/Users/elton/Desktop/ThriverSmoke",
+  "pid": 75705,
+  "processStart": "Thu Oct 29 01:37:36 2026",
+  "port": 8081,
+  "localUrl": "https://localhost:8081/",
+  "networkUrls": [
+    "https://192.168.0.45:8081/"
+  ],
+  "browser": {
+    "lifecycle": {
+      "state": "failed",
+      "policy": "eager",
+      "sessionId": "8a2e53a5-4cf1-4820-acdc-b2cd763ff6f5",
+      "browserEpoch": 1,
+      "revision": 15,
+      "stateEnteredAt": "2026-10-29T01:41:55.444Z",
+      "lastObservedAt": "2026-10-29T01:41:55.444Z",
+      "failures": 1,
+      "cleanupConfirmed": true,
+      "attemptLimit": 3,
+      "historyTruncated": false,
+      "retryEligible": true,
+      "nextAction": "A managed-target command or runtime_recover can launch the browser.",
+      "history": [
+        {
+          "revision": 1,
+          "state": "launching",
+          "at": "2026-10-29T01:37:38.359Z",
+          "reason": "launch"
+        },
+        {
+          "revision": 2,
+          "state": "launching",
+          "at": "2026-10-29T01:37:38.360Z",
+          "reason": "prepared"
+        },
+        {
+          "revision": 3,
+          "state": "running",
+          "at": "2026-10-29T01:37:39.152Z",
+          "reason": "running"
+        },
+        {
+          "revision": 12,
+          "state": "closing",
+          "at": "2026-10-29T01:41:55.286Z",
+          "reason": "Managed browser closed unexpectedly."
+        },
+        {
+          "revision": 15,
+          "state": "failed",
+          "at": "2026-10-29T01:41:55.444Z",
+          "reason": "Managed browser closed unexpectedly."
+        }
+      ],
+      "attemptId": "b1a2d171-5a3a-467d-8c9d-7610e97203cd",
+      "issue": "Managed browser closed unexpectedly.",
+      "issueAt": "2026-10-29T01:41:55.444Z",
+      "issueCause": "connection_lost"
+    },
+    "status": "launch_failed",
+    "clients": [],
+    "lastBridgeConnectedAt": "2026-10-29T01:39:44.988Z",
+    "lastCommandReadyAt": "2026-10-29T01:39:45.649Z",
+    "connected": false,
+    "commandReady": false,
+    "connectedClientCount": 0,
+    "lastTransitionAt": "2026-10-29T01:41:55.444Z",
+    "audioMuted": false,
+    "lastError": {
+      "cause": "connection_lost",
+      "message": "Managed browser closed unexpectedly.",
+      "at": "2026-10-29T01:41:55.444Z"
+    }
+  },
+  "browserAutomation": {
+    "configured": false,
+    "enabled": false,
+    "protocol": "cdp"
+  },
+  "registeredAt": "2026-10-29T01:37:38.358Z",
+  "updatedAt": "2026-10-29T01:41:55.447Z"
+}
