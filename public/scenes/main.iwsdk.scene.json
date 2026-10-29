@@ -545,7 +545,7 @@
       "name": "Blobby",
       "transform": {
         "position": [
-          -1.05,
+          -1.35,
           1.28,
           -1.05
         ],
@@ -554,7 +554,7 @@
           0,
           0
         ],
-        "scale": 1
+        "scale": 0.6
       },
       "content": {
         "type": "asset",
