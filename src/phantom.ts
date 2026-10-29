@@ -53,6 +53,13 @@ const HOLOGRAM_SCALE = 0.62;
 const MOUTH_RADIUS = 0.14;
 const PUFF_DWELL = 0.38;
 const PUFF_COOLDOWN = 0.9;
+const VOICE_TRACKS: Partial<Record<Phase, string>> = {
+  [Phase.Shop]: 'shop',
+  [Phase.Opened]: 'opened',
+  [Phase.Smoke]: 'smoke',
+  [Phase.Receipt]: 'receipt',
+  [Phase.End]: 'end',
+};
 const UP = new Vector3(0, 1, 0);
 /** The cigarette's local +Z: the filter anchor side. */
 const FILTER_AXIS = new Vector3(0, 0, 1);
@@ -147,6 +154,7 @@ export class PhantomSystem extends createSystem({
   private readonly blobbyHome = new Vector3();
   private blobbyPop = 0;
   private blobbyBaseScale = 0.75;
+  private voiceAudio: HTMLAudioElement | null = null;
   private packContactObject!: Object3D;
   private cigaretteEntity!: Entity;
   private cigaretteObject!: Object3D;
@@ -759,6 +767,7 @@ export class PhantomSystem extends createSystem({
   private showThankYou(): void {
     this.audio.ensure();
     this.audio.chime();
+    this.playTrack('thankyou');
     this.setText(this.endEyebrow, 'PHANTOM');
     this.setText(this.endTitle, 'Thank you for staying.');
     this.setText(
@@ -786,6 +795,7 @@ export class PhantomSystem extends createSystem({
     this.currentPhase = phase;
     this.sessionEntity.setValue(Session, 'phase', phase);
     this.blobbyPop = 1;
+    this.playVoice(phase);
 
     switch (phase) {
       case Phase.Shop:
@@ -1346,6 +1356,27 @@ export class PhantomSystem extends createSystem({
     if (distance > MOUTH_RADIUS + 0.06) {
       this.puffLatched = false;
     }
+  }
+
+  private playVoice(phase: Phase): void {
+    const track = VOICE_TRACKS[phase];
+    if (track) {
+      this.playTrack(track);
+    }
+  }
+
+  private playTrack(track: string): void {
+    if (this.voiceAudio) {
+      this.voiceAudio.pause();
+      this.voiceAudio = null;
+    }
+    const audio = new Audio(
+      `${import.meta.env.BASE_URL}audio/vo/${track}.mp3`,
+    );
+    audio.volume = 0.85;
+    // Missing files fail silently so the app works before VO is recorded.
+    void audio.play().catch(() => undefined);
+    this.voiceAudio = audio;
   }
 
   /**
