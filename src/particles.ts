@@ -173,6 +173,24 @@ export class PhantomParticles {
     root.add(this.confetti);
   }
 
+  trail(origin: Vector3): void {
+    this.smokeAlive = true;
+    this.smokePoints.visible = true;
+    for (let count = 0; count < 2; count += 1) {
+      const index = this.smokeCursor;
+      this.smokeCursor = (this.smokeCursor + 1) % this.smokeCount;
+      const i3 = index * 3;
+      this.smokePositions[i3] = origin.x + (Math.random() - 0.5) * 0.006;
+      this.smokePositions[i3 + 1] = origin.y + (Math.random() - 0.5) * 0.006;
+      this.smokePositions[i3 + 2] = origin.z + (Math.random() - 0.5) * 0.006;
+      this.smokeVelocity[i3] = (Math.random() - 0.5) * 0.04;
+      this.smokeVelocity[i3 + 1] = 0.05 + Math.random() * 0.06;
+      this.smokeVelocity[i3 + 2] = (Math.random() - 0.5) * 0.04;
+      this.smokeLife[index] = 1.6 + Math.random() * 0.8;
+      this.smokeMaxLife[index] = this.smokeLife[index];
+    }
+  }
+
   puff(origin: Vector3): void {
     this.smokeAlive = true;
     this.smokePoints.visible = true;

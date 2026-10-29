@@ -155,6 +155,7 @@ export class PhantomSystem extends createSystem({
   private blobbyPop = 0;
   private blobbyBaseScale = 0.75;
   private voiceAudio: HTMLAudioElement | null = null;
+  private smokeTrailTimer = 0;
   private packContactObject!: Object3D;
   private cigaretteEntity!: Entity;
   private cigaretteObject!: Object3D;
@@ -441,6 +442,14 @@ export class PhantomSystem extends createSystem({
     this.animateCrush(delta);
     this.animateDesktopHold();
     this.animateBlobby(delta, time);
+    if (this.currentPhase === Phase.Smoke && this.lit) {
+      this.smokeTrailTimer -= delta;
+      if (this.smokeTrailTimer <= 0) {
+        this.smokeTrailTimer = 0.12;
+        this.emberMesh.getWorldPosition(this.tempPosition);
+        this.particles.trail(this.tempPosition);
+      }
+    }
     this.detectPuff(delta);
     this.particles.update(delta);
 
@@ -796,6 +805,7 @@ export class PhantomSystem extends createSystem({
     this.sessionEntity.setValue(Session, 'phase', phase);
     this.blobbyPop = 1;
     this.playVoice(phase);
+    this.smokeTrailTimer = 0;
 
     switch (phase) {
       case Phase.Shop:

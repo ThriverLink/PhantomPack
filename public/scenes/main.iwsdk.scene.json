@@ -131,7 +131,7 @@
       "transform": {
         "position": [
           0,
-          0,
+          0.16,
           -0.72
         ]
       }
@@ -168,7 +168,7 @@
       "transform": {
         "position": [
           -0.2,
-          0.74,
+          0.9,
           -0.8
         ],
         "rotationDeg": [
@@ -227,7 +227,7 @@
       "transform": {
         "position": [
           -0.2,
-          0.855,
+          1.015,
           -0.8
         ],
         "rotationDeg": [
@@ -253,7 +253,7 @@
       "transform": {
         "position": [
           0.22,
-          0.74,
+          0.9,
           -0.84
         ],
         "rotationDeg": [
@@ -295,7 +295,7 @@
       "transform": {
         "position": [
           0.17,
-          0.74,
+          0.9,
           -0.68
         ],
         "rotationDeg": [
@@ -316,7 +316,7 @@
       "transform": {
         "position": [
           -0.37,
-          0.741,
+          0.901,
           -0.55
         ],
         "rotationDeg": [
@@ -399,7 +399,7 @@
       "transform": {
         "position": [
           -0.37,
-          0.88,
+          1.04,
           -0.55
         ],
         "rotationDeg": [
@@ -420,7 +420,7 @@
       "transform": {
         "position": [
           -0.2,
-          0.99,
+          1.15,
           -0.8
         ],
         "rotationDeg": [
@@ -527,7 +527,7 @@
       "transform": {
         "position": [
           0.28,
-          1.28,
+          1.44,
           -0.62
         ]
       }
@@ -667,7 +667,7 @@
       "transform": {
         "position": [
           -0.2,
-          1.06,
+          1.22,
           -0.8
         ],
         "rotationDeg": [
