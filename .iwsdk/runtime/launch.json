@@ -1,19 +1,19 @@
 {
   "schemaVersion": 2,
-  "claimId": "d31ea021-72d8-4fed-afe3-32b4a55c3e2d",
+  "claimId": "bcd2748b-cdd9-4df9-9926-533a8cebfca9",
   "workspaceRoot": "/Users/elton/Desktop/ThriverSmoke",
-  "pid": 9586,
-  "processStart": "Thu Oct 29 14:04:19 2026",
-  "launcherPid": 9535,
-  "processGroupId": 9535,
+  "pid": 17253,
+  "processStart": "Thu Oct 29 16:59:10 2026",
+  "launcherPid": 17203,
+  "processGroupId": 17203,
   "command": "npm",
   "args": [
     "run",
     "dev:runtime"
   ],
-  "logPath": "/Users/elton/Desktop/ThriverSmoke/.iwsdk/runtime/logs/dev-1793282658882.log",
+  "logPath": "/Users/elton/Desktop/ThriverSmoke/.iwsdk/runtime/logs/dev-1793293150826.log",
   "scriptName": "dev:runtime",
   "port": 8081,
   "openBrowser": true,
-  "createdAt": "2026-10-29T14:04:18.882Z"
+  "createdAt": "2026-10-29T16:59:10.827Z"
 }

@@ -777,6 +777,8 @@ export class PhantomSystem extends createSystem({
     this.audio.ensure();
     this.audio.chime();
     this.playTrack('thankyou');
+    this.effectPosition.set(0, 1.2, -1.0);
+    this.particles.confettiBurst(this.effectPosition);
     this.setText(this.endEyebrow, 'PHANTOM');
     this.setText(this.endTitle, 'Thank you for staying.');
     this.setText(
