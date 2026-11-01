@@ -40,9 +40,9 @@ import {
 } from './components.js';
 import { PhantomParticles } from './particles.js';
 
-const PACK_HOME = new Vector3(-0.2, 0.74, -0.8);
+const PACK_HOME = new Vector3(-0.2, 0.9, -0.8);
 const BIN_TARGET = new Vector3(0.68, 0.4, -0.92);
-const ASHTRAY_TARGET = new Vector3(0.22, 0.79, -0.84);
+const ASHTRAY_TARGET = new Vector3(0.22, 0.95, -0.84);
 const MAIN_SCALE = 0.19;
 const FACT_SCALE = 0.18;
 const RECEIPT_SCALE = 0.17;
@@ -1585,7 +1585,7 @@ export class PhantomSystem extends createSystem({
 
   private animateEmber(time: number): void {
     const bob = Math.sin(time * 1.45) * 0.022;
-    this.emberObject.position.y = 1.28 + bob;
+    this.emberObject.position.y = 1.44 + bob;
     this.emberObject.position.x = 0.28 + Math.sin(time * 0.7) * 0.012;
     const ringA = this.emberObject.getObjectByName('RingA');
     const ringB = this.emberObject.getObjectByName('RingB');
