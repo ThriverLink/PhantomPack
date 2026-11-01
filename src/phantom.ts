@@ -156,6 +156,7 @@ export class PhantomSystem extends createSystem({
   private blobbyBaseScale = 0.75;
   private voiceAudio: HTMLAudioElement | null = null;
   private smokeTrailTimer = 0;
+  private shopVoicePlayed = false;
   private packContactObject!: Object3D;
   private cigaretteEntity!: Entity;
   private cigaretteObject!: Object3D;
@@ -587,6 +588,21 @@ export class PhantomSystem extends createSystem({
     });
     this.cleanupFuncs.push(() => {
       this.held = false;
+    });
+
+    // Autoplay policy: the shop line can only start after a real gesture.
+    // The first pointer press anywhere unlocks audio and plays it once.
+    const unlockVoice = () => {
+      this.audio.ensure();
+      if (!this.shopVoicePlayed) {
+        this.shopVoicePlayed = true;
+        this.playVoice(Phase.Shop);
+      }
+      window.removeEventListener('pointerdown', unlockVoice, true);
+    };
+    window.addEventListener('pointerdown', unlockVoice, true);
+    this.cleanupFuncs.push(() => {
+      window.removeEventListener('pointerdown', unlockVoice, true);
     });
   }
 
@@ -1382,12 +1398,17 @@ export class PhantomSystem extends createSystem({
       this.voiceAudio.pause();
       this.voiceAudio = null;
     }
-    const audio = new Audio(
-      `${import.meta.env.BASE_URL}audio/vo/${track}.mp3`,
-    );
+    const base = `${import.meta.env.BASE_URL}audio/vo/${track}`;
+    // Prefer the on-device-generated .m4a clips; fall back to .mp3 so a
+    // later AI-recorded set can be dropped in without a code change.
+    const audio = new Audio(`${base}.m4a`);
     audio.volume = 0.85;
-    // Missing files fail silently so the app works before VO is recorded.
-    void audio.play().catch(() => undefined);
+    audio.play().catch(() => {
+      const fallback = new Audio(`${base}.mp3`);
+      fallback.volume = 0.85;
+      void fallback.play().catch(() => undefined);
+      this.voiceAudio = fallback;
+    });
     this.voiceAudio = audio;
   }
 

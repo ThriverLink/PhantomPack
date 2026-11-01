@@ -34,6 +34,19 @@ The app plays them automatically per phase; missing files fail silently.
 - `puff.mp3` — a single whispered "breathe" played on each puff (could feel intrusive; test before adding).
 - Ambient bed music — a low, slow drone under the whole session (separate file, looped).
 
+## Pre-generated baseline
+The six clips already exist as `.m4a` files in this folder, generated on-device
+with macOS `say` (voice: Samantha, 160 wpm) and converted with `afconvert`.
+Regenerate any clip with:
+
+```bash
+say -v Samantha -r 160 -o /tmp/shop.aiff "Welcome to Phantom Pack. This is a rehearsal — not a cigarette."
+afconvert -f m4af -d aac -b 64000 /tmp/shop.aiff public/audio/vo/shop.m4a
+```
+
+The app plays `.m4a` first and falls back to `.mp3`, so you can replace any clip
+with an AI-recorded MP3 of the same name without touching code.
+
 ## Notes
 - Filenames must match exactly (case-sensitive) — the loader looks for `audio/vo/shop.mp3`, etc.
 - The app works with zero clips present, so you can ship before recording.
