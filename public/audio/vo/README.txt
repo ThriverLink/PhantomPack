@@ -1,8 +1,9 @@
-Voiceover clips. The app plays <track>.m4a first and falls back to <track>.mp3,
-so both formats work with the same filename stem.
+Voiceover and ambience clips. All are MP3 and wired into the app.
 
-Current files were generated on-device with macOS `say` (Samantha, 160 wpm)
-and converted with afconvert; see AUDIO_SCRIPT.md for the script and how to
-regenerate or replace them.
+Expected names:
+  shop, opened, smoke, receipt, end, thankyou  (per-phase voiceover)
+  puff     (each puff)
+  ambient  (looped bed, starts on first gesture)
 
-Expected names: shop, opened, smoke, receipt, end, thankyou.
+A missing file fails silently, so the app still runs without it.
+See AUDIO_SCRIPT.md at the repo root for the script and mix details.

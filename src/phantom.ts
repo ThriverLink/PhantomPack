@@ -157,6 +157,8 @@ export class PhantomSystem extends createSystem({
   private voiceAudio: HTMLAudioElement | null = null;
   private smokeTrailTimer = 0;
   private shopVoicePlayed = false;
+  private ambientAudio: HTMLAudioElement | null = null;
+  private ambientStarted = false;
   private packContactObject!: Object3D;
   private cigaretteEntity!: Entity;
   private cigaretteObject!: Object3D;
@@ -594,6 +596,7 @@ export class PhantomSystem extends createSystem({
     // The first pointer press anywhere unlocks audio and plays it once.
     const unlockVoice = () => {
       this.audio.ensure();
+      this.startAmbient();
       if (!this.shopVoicePlayed) {
         this.shopVoicePlayed = true;
         this.playVoice(Phase.Shop);
@@ -1386,6 +1389,28 @@ export class PhantomSystem extends createSystem({
     }
   }
 
+  private startAmbient(): void {
+    if (this.ambientStarted) {
+      return;
+    }
+    this.ambientStarted = true;
+    const ambient = new Audio(
+      `${import.meta.env.BASE_URL}audio/vo/ambient.mp3`,
+    );
+    ambient.loop = true;
+    ambient.volume = 0.18;
+    void ambient.play().catch(() => undefined);
+    this.ambientAudio = ambient;
+  }
+
+  private playSfx(name: string): void {
+    const sfx = new Audio(
+      `${import.meta.env.BASE_URL}audio/vo/${name}.mp3`,
+    );
+    sfx.volume = 0.7;
+    void sfx.play().catch(() => undefined);
+  }
+
   private playVoice(phase: Phase): void {
     const track = VOICE_TRACKS[phase];
     if (track) {
@@ -1398,17 +1423,11 @@ export class PhantomSystem extends createSystem({
       this.voiceAudio.pause();
       this.voiceAudio = null;
     }
-    const base = `${import.meta.env.BASE_URL}audio/vo/${track}`;
-    // Prefer the on-device-generated .m4a clips; fall back to .mp3 so a
-    // later AI-recorded set can be dropped in without a code change.
-    const audio = new Audio(`${base}.m4a`);
+    const audio = new Audio(
+      `${import.meta.env.BASE_URL}audio/vo/${track}.mp3`,
+    );
     audio.volume = 0.85;
-    audio.play().catch(() => {
-      const fallback = new Audio(`${base}.mp3`);
-      fallback.volume = 0.85;
-      void fallback.play().catch(() => undefined);
-      this.voiceAudio = fallback;
-    });
+    void audio.play().catch(() => undefined);
     this.voiceAudio = audio;
   }
 
@@ -1493,6 +1512,7 @@ export class PhantomSystem extends createSystem({
 
   private takePuff(): void {
     this.puffs += 1;
+    this.playSfx('puff');
     this.mouthTime = 0;
     this.puffLatched = true;
     this.puffCooldown = PUFF_COOLDOWN;

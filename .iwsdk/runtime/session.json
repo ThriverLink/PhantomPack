@@ -1,9 +1,9 @@
 {
   "schemaVersion": 2,
-  "sessionId": "7ca4386c-4b87-43ba-b5a7-5eb07da4a717",
+  "sessionId": "9ca337b7-2a53-4a54-9e85-4b2feaa63ff9",
   "workspaceRoot": "/Users/elton/Desktop/ThriverSmoke",
-  "pid": 80596,
-  "processStart": "Sun Nov  1 01:58:45 2026",
+  "pid": 22935,
+  "processStart": "Mon Nov  2 16:23:05 2026",
   "port": 8081,
   "localUrl": "https://localhost:8081/",
   "networkUrls": [
@@ -13,11 +13,11 @@
     "lifecycle": {
       "state": "running",
       "policy": "eager",
-      "sessionId": "7ca4386c-4b87-43ba-b5a7-5eb07da4a717",
+      "sessionId": "9ca337b7-2a53-4a54-9e85-4b2feaa63ff9",
       "browserEpoch": 1,
       "revision": 8,
-      "stateEnteredAt": "2026-11-01T01:58:50.505Z",
-      "lastObservedAt": "2026-11-01T01:58:55.311Z",
+      "stateEnteredAt": "2026-11-02T16:23:07.900Z",
+      "lastObservedAt": "2026-11-02T16:23:10.559Z",
       "failures": 0,
       "cleanupConfirmed": true,
       "attemptLimit": 3,
@@ -28,52 +28,52 @@
         {
           "revision": 1,
           "state": "launching",
-          "at": "2026-11-01T01:58:48.328Z",
+          "at": "2026-11-02T16:23:06.608Z",
           "reason": "launch"
         },
         {
           "revision": 2,
           "state": "launching",
-          "at": "2026-11-01T01:58:48.329Z",
+          "at": "2026-11-02T16:23:06.608Z",
           "reason": "prepared"
         },
         {
           "revision": 3,
           "state": "running",
-          "at": "2026-11-01T01:58:50.505Z",
+          "at": "2026-11-02T16:23:07.900Z",
           "reason": "running"
         }
       ],
-      "attemptId": "c544947e-2381-4aa4-ad9f-84a3130afebb"
+      "attemptId": "f7cd21a9-8348-4842-92d1-9566289401ac"
     },
     "status": "connected",
     "clients": [
       {
         "commandReady": true,
-        "sessionId": "7ca4386c-4b87-43ba-b5a7-5eb07da4a717",
+        "sessionId": "9ca337b7-2a53-4a54-9e85-4b2feaa63ff9",
         "browserEpoch": 1,
         "deviceClass": "managed",
-        "pageId": "tab-mvx6lmyt-uiu1n9",
+        "pageId": "tab-mvzgwxs8-ku9pkq",
         "role": "app",
         "tabGeneration": 1
       },
       {
         "commandReady": true,
-        "sessionId": "7ca4386c-4b87-43ba-b5a7-5eb07da4a717",
+        "sessionId": "9ca337b7-2a53-4a54-9e85-4b2feaa63ff9",
         "browserEpoch": 1,
         "deviceClass": "managed",
-        "pageId": "tab-mvx6ll4i-1bwz7c",
+        "pageId": "tab-mvzgwwzm-dd6pgj",
         "role": "editor",
-        "sceneSessionId": "scene-lqseyr3mwns",
+        "sceneSessionId": "scene-zp1ojpee2k",
         "tabGeneration": 1
       }
     ],
-    "lastBridgeConnectedAt": "2026-11-01T01:58:54.125Z",
-    "lastCommandReadyAt": "2026-11-01T01:58:55.311Z",
+    "lastBridgeConnectedAt": "2026-11-02T16:23:09.332Z",
+    "lastCommandReadyAt": "2026-11-02T16:23:10.559Z",
     "connected": true,
     "commandReady": true,
     "connectedClientCount": 2,
-    "lastTransitionAt": "2026-11-01T01:58:50.505Z",
+    "lastTransitionAt": "2026-11-02T16:23:07.900Z",
     "audioMuted": false
   },
   "browserAutomation": {
@@ -81,6 +81,6 @@
     "enabled": false,
     "protocol": "cdp"
   },
-  "registeredAt": "2026-11-01T01:58:48.315Z",
-  "updatedAt": "2026-11-01T01:58:55.315Z"
+  "registeredAt": "2026-11-02T16:23:06.606Z",
+  "updatedAt": "2026-11-02T16:23:10.563Z"
 }
