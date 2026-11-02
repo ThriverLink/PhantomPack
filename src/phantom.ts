@@ -20,7 +20,9 @@ import {
   Object3D,
   OneHandGrabbable,
   PointLight,
+  Pressed,
   Quaternion,
+  RayInteractable,
   SRGBColorSpace,
   UIKit,
   UIKitMLAsset,
@@ -147,6 +149,7 @@ type ButtonStyle = keyof typeof BUTTON_STYLES;
 export class PhantomSystem extends createSystem({
   sessions: { required: [Session] },
   heldCigarette: { required: [Cigarette, Grabbed] },
+  brandPress: { required: [RayInteractable, Pressed] },
 }) {
   private sessionEntity!: Entity;
   private packObject!: Object3D;
@@ -160,6 +163,7 @@ export class PhantomSystem extends createSystem({
   private ambientAudio: HTMLAudioElement | null = null;
   private ambientStarted = false;
   private packContactObject!: Object3D;
+  private brandFrameEntity!: Entity;
   private cigaretteEntity!: Entity;
   private cigaretteObject!: Object3D;
   private lidPivot!: Object3D;
@@ -346,6 +350,20 @@ export class PhantomSystem extends createSystem({
     this.grabSystem = this.world.getSystem(GrabSystem);
 
     this.brandFrameObject = this.world.requireSceneObject('brand-frame');
+    this.brandFrameEntity = this.world.requireSceneEntity('brand-frame');
+    this.brandFrameEntity.addComponent(RayInteractable);
+    this.queries.brandPress.subscribe('qualify', (entity) => {
+      if (entity === this.brandFrameEntity) {
+        const opened = window.open(
+          'https://thriverlink.com/',
+          '_blank',
+          'noopener',
+        );
+        if (!opened) {
+          window.location.href = 'https://thriverlink.com/';
+        }
+      }
+    });
 
     this.lidPivot = this.requireChild(this.packObject, 'LidPivot');
     this.filterAnchor = this.requireChild(this.cigaretteObject, 'FilterAnchor');
