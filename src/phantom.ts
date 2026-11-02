@@ -693,6 +693,14 @@ export class PhantomSystem extends createSystem({
   private buyPack(): void {
     this.audio.buy();
     this.totalSpent += 8;
+    try {
+      window.localStorage.setItem(
+        'phantom.totalSpent',
+        String(this.totalSpent),
+      );
+    } catch {
+      // The session still works without persistence.
+    }
     this.bought = true;
     this.sessionEntity.setValue(Session, 'bought', true);
     this.startCashFly();
@@ -1799,8 +1807,12 @@ export class PhantomSystem extends createSystem({
       const wins = Number(window.localStorage.getItem('phantom.wins') ?? '0');
       const streak = Number(window.localStorage.getItem('phantom.streak') ?? '0');
       const lastDay = window.localStorage.getItem('phantom.lastDay') ?? '';
+      const spent = Number(
+        window.localStorage.getItem('phantom.totalSpent') ?? '0',
+      );
       this.wins = Number.isFinite(wins) ? wins : 0;
       this.streak = Number.isFinite(streak) ? streak : 0;
+      this.totalSpent = Number.isFinite(spent) ? spent : 0;
       this.lastDay = lastDay;
       if (lastDay !== this.todayKey && lastDay !== this.yesterdayKey) {
         this.streak = 0;

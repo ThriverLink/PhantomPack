@@ -23,8 +23,8 @@ For Meta VR Glasses (gaze + pinch) support, see the roadmap at the bottom.
 
 - **IWSDK 1.1** (WebXR framework, ECS, managed dev server) + **Three.js** + **TypeScript**
 - **UIKitML** (Horizon-style spatial UI) panels rendered in world space
-- 100% procedural art and materials — no imported models or textures
-- Synthesized audio (Web Audio), custom particle systems, `localStorage` persistence
+- Code-first original art: procedural room, props and body hologram, plus one custom mascot model (Blobby) and the official ThriverLink logo
+- Layered audio: recorded voiceover, ambient bed, synthesized SFX, custom particle systems, `localStorage` persistence
 - No backend, no account, works offline after load
 
 ## Requirements

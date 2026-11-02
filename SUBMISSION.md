@@ -32,9 +32,9 @@ Every path ends the same way: a decision you made with your hands, not a lecture
 
 ## How we built it
 
-Phantom Pack runs in the browser on Quest with IWSDK 1.1, Three.js, and TypeScript. There are no imported models or textures — every object is procedural geometry and material built in code: the room, table, pack with a hinged lid, cigarette with filter and ember, ashtray, lighter, lamp, wallet, bin, body hologram, and Ember, a small companion that reacts to your choices.
+Phantom Pack runs in the browser on Quest with IWSDK 1.1, Three.js, and TypeScript. Almost everything is procedural geometry and material built in code: the room, table, pack with a hinged lid, cigarette with filter and ember, ashtray, lighter, lamp, wallet, bin, and the body hologram. One custom mascot model, Blobby, floats beside the coach panel and reacts to your choices, and the official ThriverLink logo hangs framed on the wall.
 
-The interface is UIKitML panels placed in world space, so the copy lives next to the object it's about. The whole journey is one ECS system, `PhantomSystem`, driven by a small phase machine: shop → bought → opened / closed / thrown → smoke → receipt → end. Hand tracking uses pinch grab plus a filter-to-mouth proximity check with a short dwell per puff. Audio is synthesized with Web Audio, particles are custom, and streaks and wins are stored in localStorage. No backend, no account, no download.
+The interface is UIKitML panels placed in world space, so the copy lives next to the object it's about. The whole journey is one ECS system, `PhantomSystem`, driven by a small phase machine: shop → bought → opened / closed / thrown → smoke → receipt → end. Hand tracking uses pinch grab plus a filter-to-mouth proximity check with a short dwell per puff. Audio layers recorded voiceover and an ambient bed over synthesized Web Audio effects, particles are custom, and streaks, wins and the running spend tab are stored in localStorage. No backend, no account, no download.
 
 ## Challenges we ran into
 
@@ -51,7 +51,7 @@ The interface is UIKitML panels placed in world space, so the copy lives next to
 ## Accomplishments that we're proud of
 
 - **A complete loop with no dead ends.** Buy, open or throw, smoke, receipt, decision, restart — every branch lands somewhere intentional.
-- **Zero external art.** The whole world is code, so it loads fast, works offline, and can be reskinned for a campaign in an afternoon.
+- **Original art, code-first.** The world is drawn in code with one custom mascot model, so it loads fast, works offline, and can be reskinned for a campaign in an afternoon.
 - **The receipt.** It's the piece we're proudest of. It turns "smoking is bad" into a small document about your own behavior, with your own numbers on it.
 - **The reframe holds.** Opening the pack is treated as an urge, not a failure, and throwing it away is celebrated without being childish.
 - **Hands-first interaction a first-timer can read.** The objects explain themselves; nobody has to be taught a menu.

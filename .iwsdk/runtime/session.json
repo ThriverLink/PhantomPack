@@ -1,9 +1,9 @@
 {
   "schemaVersion": 2,
-  "sessionId": "b2be35ae-763a-41d0-81d1-cf5645c9ecab",
+  "sessionId": "2102219f-4175-42ba-87d3-bd851faa58c9",
   "workspaceRoot": "/Users/elton/Desktop/ThriverSmoke",
-  "pid": 24062,
-  "processStart": "Mon Nov  2 16:26:50 2026",
+  "pid": 25960,
+  "processStart": "Mon Nov  2 16:30:26 2026",
   "port": 8081,
   "localUrl": "https://localhost:8081/",
   "networkUrls": [
@@ -13,11 +13,11 @@
     "lifecycle": {
       "state": "running",
       "policy": "eager",
-      "sessionId": "b2be35ae-763a-41d0-81d1-cf5645c9ecab",
+      "sessionId": "2102219f-4175-42ba-87d3-bd851faa58c9",
       "browserEpoch": 1,
-      "revision": 9,
-      "stateEnteredAt": "2026-11-02T16:26:52.705Z",
-      "lastObservedAt": "2026-11-02T16:27:12.535Z",
+      "revision": 8,
+      "stateEnteredAt": "2026-11-02T16:30:29.431Z",
+      "lastObservedAt": "2026-11-02T16:30:31.916Z",
       "failures": 0,
       "cleanupConfirmed": true,
       "attemptLimit": 3,
@@ -28,55 +28,59 @@
         {
           "revision": 1,
           "state": "launching",
-          "at": "2026-11-02T16:26:51.871Z",
+          "at": "2026-11-02T16:30:28.580Z",
           "reason": "launch"
         },
         {
           "revision": 2,
           "state": "launching",
-          "at": "2026-11-02T16:26:51.871Z",
+          "at": "2026-11-02T16:30:28.580Z",
           "reason": "prepared"
         },
         {
           "revision": 3,
           "state": "running",
-          "at": "2026-11-02T16:26:52.705Z",
+          "at": "2026-11-02T16:30:29.431Z",
           "reason": "running"
         }
       ],
-      "attemptId": "5ee27191-83d0-4751-ac2d-590009ebaa53"
+      "attemptId": "c3820102-104f-42f9-a10b-9494dfdc55d2"
     },
-    "status": "disconnected",
+    "status": "connected",
     "clients": [
       {
         "commandReady": true,
-        "sessionId": "b2be35ae-763a-41d0-81d1-cf5645c9ecab",
+        "sessionId": "2102219f-4175-42ba-87d3-bd851faa58c9",
         "browserEpoch": 1,
         "deviceClass": "managed",
-        "pageId": "tab-mvzh1qfu-sh0dfh",
+        "pageId": "tab-mvzh6eeu-coerj4",
+        "role": "app",
+        "tabGeneration": 1
+      },
+      {
+        "commandReady": true,
+        "sessionId": "2102219f-4175-42ba-87d3-bd851faa58c9",
+        "browserEpoch": 1,
+        "deviceClass": "managed",
+        "pageId": "tab-mvzh6dop-fms32i",
         "role": "editor",
-        "sceneSessionId": "scene-ffvpk3zs6lf",
+        "sceneSessionId": "scene-hgfzvl7hloa",
         "tabGeneration": 1
       }
     ],
-    "lastBridgeConnectedAt": "2026-11-02T16:26:54.016Z",
-    "lastCommandReadyAt": "2026-11-02T16:26:55.410Z",
+    "lastBridgeConnectedAt": "2026-11-02T16:30:30.786Z",
+    "lastCommandReadyAt": "2026-11-02T16:30:31.916Z",
     "connected": true,
-    "commandReady": false,
-    "connectedClientCount": 1,
-    "lastTransitionAt": "2026-11-02T16:26:52.705Z",
-    "audioMuted": false,
-    "lastError": {
-      "cause": "connection_lost",
-      "message": "The managed browser bridge disconnected while Chromium kept running; a reloading page reconnects on its own. Use runtime_wait to observe it, and run `npx @iwsdk/cli browser reload` only if it does not reconnect. Chromium is not restarted.",
-      "at": "2026-11-02T16:27:12.535Z"
-    }
+    "commandReady": true,
+    "connectedClientCount": 2,
+    "lastTransitionAt": "2026-11-02T16:30:29.431Z",
+    "audioMuted": false
   },
   "browserAutomation": {
     "configured": false,
     "enabled": false,
     "protocol": "cdp"
   },
-  "registeredAt": "2026-11-02T16:26:51.869Z",
-  "updatedAt": "2026-11-02T16:27:12.540Z"
+  "registeredAt": "2026-11-02T16:30:28.578Z",
+  "updatedAt": "2026-11-02T16:30:31.920Z"
 }
