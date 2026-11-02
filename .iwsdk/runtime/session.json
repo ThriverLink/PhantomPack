@@ -15,9 +15,9 @@
       "policy": "eager",
       "sessionId": "9ca337b7-2a53-4a54-9e85-4b2feaa63ff9",
       "browserEpoch": 1,
-      "revision": 8,
+      "revision": 11,
       "stateEnteredAt": "2026-11-02T16:23:07.900Z",
-      "lastObservedAt": "2026-11-02T16:23:10.559Z",
+      "lastObservedAt": "2026-11-02T16:25:43.438Z",
       "failures": 0,
       "cleanupConfirmed": true,
       "attemptLimit": 3,
@@ -55,7 +55,7 @@
         "deviceClass": "managed",
         "pageId": "tab-mvzgwxs8-ku9pkq",
         "role": "app",
-        "tabGeneration": 1
+        "tabGeneration": 2
       },
       {
         "commandReady": true,
@@ -68,8 +68,8 @@
         "tabGeneration": 1
       }
     ],
-    "lastBridgeConnectedAt": "2026-11-02T16:23:09.332Z",
-    "lastCommandReadyAt": "2026-11-02T16:23:10.559Z",
+    "lastBridgeConnectedAt": "2026-11-02T16:25:43.420Z",
+    "lastCommandReadyAt": "2026-11-02T16:25:43.438Z",
     "connected": true,
     "commandReady": true,
     "connectedClientCount": 2,
@@ -82,5 +82,5 @@
     "protocol": "cdp"
   },
   "registeredAt": "2026-11-02T16:23:06.606Z",
-  "updatedAt": "2026-11-02T16:23:10.563Z"
+  "updatedAt": "2026-11-02T16:25:43.451Z"
 }
