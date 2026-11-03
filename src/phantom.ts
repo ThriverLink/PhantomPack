@@ -267,12 +267,10 @@ export class PhantomSystem extends createSystem({
   private receiptDelay = -1;
   private endDelay = -1;
   private throwT = -1;
-  private throwBurst = false;
   private crushT = -1;
   private pendingEnd: EndKind = 'stopped';
 
   private streak = 0;
-  private wins = 0;
   private lastDay = '';
   private readonly todayKey = this.dayKey(new Date());
   private readonly yesterdayKey = this.dayKey(
@@ -645,7 +643,7 @@ export class PhantomSystem extends createSystem({
           this.renderShopCopy();
         } else {
           this.pendingEnd = 'declined';
-          this.recordWin();
+          this.recordStreakDay();
           this.enterPhase(Phase.End);
         }
         break;
@@ -674,7 +672,7 @@ export class PhantomSystem extends createSystem({
           this.throwPack();
         } else {
           this.pendingEnd = 'closed';
-          this.recordWin();
+          this.recordStreakDay();
           this.enterPhase(Phase.End);
         }
         break;
@@ -752,7 +750,7 @@ export class PhantomSystem extends createSystem({
     this.audio.click();
     if (this.puffs === 0) {
       this.pendingEnd = 'stopped';
-      this.recordWin();
+      this.recordStreakDay();
       this.enterPhase(Phase.End);
       return;
     }
@@ -761,7 +759,7 @@ export class PhantomSystem extends createSystem({
 
   private finishReceipt(): void {
     this.pendingEnd = 'stopped';
-    this.recordWin();
+    this.recordStreakDay();
     this.enterPhase(Phase.End);
   }
 
@@ -785,7 +783,7 @@ export class PhantomSystem extends createSystem({
   private crushCigarette(): void {
     this.audio.crush();
     this.pendingEnd = 'crushed';
-    this.recordWin();
+    this.recordStreakDay();
     this.releaseCigarette();
     this.cigaretteEntity.setValue(Cigarette, 'crushed', true);
     this.cigaretteObject.getWorldPosition(this.crushStart);
@@ -801,13 +799,11 @@ export class PhantomSystem extends createSystem({
   }
 
   private throwPack(): void {
-    this.audio.confetti();
     this.pendingEnd = 'thrown';
-    this.recordWin();
+    this.recordStreakDay();
     this.enterPhase(Phase.Thrown);
     this.packObject.position.copy(PACK_HOME);
     this.throwT = 0;
-    this.throwBurst = false;
     this.packScaleTarget = 1;
     this.endDelay = 1.7;
   }
@@ -820,10 +816,7 @@ export class PhantomSystem extends createSystem({
 
   private showThankYou(): void {
     this.audio.ensure();
-    this.audio.chime();
     this.playTrack('thankyou');
-    this.effectPosition.set(0, 1.2, -1.0);
-    this.particles.confettiBurst(this.effectPosition);
     this.setText(this.endEyebrow, 'THANKS FOR SITTING WITH IT');
     this.setText(this.endTitle, 'You can take the headset off now.');
     this.setText(
@@ -1217,9 +1210,7 @@ export class PhantomSystem extends createSystem({
   }
 
   private renderEnd(): void {
-    const day = Math.max(1, this.streak);
-    const winWord = this.wins === 1 ? 'WIN' : 'WINS';
-    this.setText(this.endEyebrow, `DAY ${day} · ${this.wins} ${winWord}`);
+    this.setText(this.endEyebrow, 'BEFORE YOU TAKE IT OFF');
     this.setText(this.endBreathe, 'Go again');
     this.endBreathe.setProperties({ display: 'flex' });
     this.setText(this.endDone, 'Done');
@@ -1599,12 +1590,6 @@ export class PhantomSystem extends createSystem({
       );
       this.packObject.rotation.y = 0.3 + t * 2.4;
       this.packObject.rotation.z = Math.sin(Math.PI * t) * 0.5;
-      if (!this.throwBurst && t > 0.72) {
-        this.throwBurst = true;
-        this.effectPosition.copy(BIN_TARGET);
-        this.effectPosition.y += 0.1;
-        this.particles.confettiBurst(this.effectPosition);
-      }
       if (this.throwT >= 1) {
         this.throwT = -1;
         this.packObject.visible = false;
@@ -1803,13 +1788,11 @@ export class PhantomSystem extends createSystem({
 
   private loadStreak(): void {
     try {
-      const wins = Number(window.localStorage.getItem('phantom.wins') ?? '0');
       const streak = Number(window.localStorage.getItem('phantom.streak') ?? '0');
       const lastDay = window.localStorage.getItem('phantom.lastDay') ?? '';
       const spent = Number(
         window.localStorage.getItem('phantom.totalSpent') ?? '0',
       );
-      this.wins = Number.isFinite(wins) ? wins : 0;
       this.streak = Number.isFinite(streak) ? streak : 0;
       this.totalSpent = Number.isFinite(spent) ? spent : 0;
       this.lastDay = lastDay;
@@ -1817,30 +1800,23 @@ export class PhantomSystem extends createSystem({
         this.streak = 0;
       }
     } catch {
-      this.wins = 0;
       this.streak = 0;
       this.lastDay = '';
     }
-    this.sessionEntity.setValue(Session, 'wins', this.wins);
     this.sessionEntity.setValue(Session, 'streak', this.streak);
   }
 
-  private recordWin(): void {
+  private recordStreakDay(): void {
     if (this.lastDay === this.todayKey) {
-      this.wins += 1;
       this.streak = Math.max(1, this.streak);
     } else if (this.lastDay === this.yesterdayKey) {
       this.streak += 1;
-      this.wins += 1;
     } else {
       this.streak = 1;
-      this.wins += 1;
     }
     this.lastDay = this.todayKey;
-    this.sessionEntity.setValue(Session, 'wins', this.wins);
     this.sessionEntity.setValue(Session, 'streak', this.streak);
     try {
-      window.localStorage.setItem('phantom.wins', String(this.wins));
       window.localStorage.setItem('phantom.streak', String(this.streak));
       window.localStorage.setItem('phantom.lastDay', this.lastDay);
     } catch {

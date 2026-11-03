@@ -40,7 +40,6 @@ export const Session = createComponent('Session', {
   opened: { type: Types.Boolean, default: false },
   puffs: { type: Types.Int32, default: 0 },
   streak: { type: Types.Int32, default: 0 },
-  wins: { type: Types.Int32, default: 0 },
   craving: { type: Types.Int32, default: 5 },
   lastFact: { type: Types.Int32, default: -1 },
 });
