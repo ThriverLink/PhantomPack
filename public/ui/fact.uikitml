@@ -91,10 +91,10 @@
       <div class="dot" id="dot4"></div>
     </div>
   </div>
-  <div class="title" id="title">10 seconds to your brain.</div>
-  <div class="body" id="body1">Nicotine reaches your brain in about 10 seconds.</div>
-  <div class="body" id="body2">Dopamine spikes — the reward your habit is chasing. It fades in minutes.</div>
-  <div class="body-soft" id="body3">Then your brain asks for more.</div>
-  <div class="foot" id="foot">This is a fake cigarette. The craving is real.</div>
+  <div class="title" id="title">Ten seconds to the brain</div>
+  <div class="body" id="body1">Nicotine reaches your brain in about ten seconds.</div>
+  <div class="body" id="body2">Dopamine rises with it, which is the lift you feel.</div>
+  <div class="body-soft" id="body3">Then it fades within a few minutes, and the wanting comes back.</div>
+  <div class="foot" id="foot">Right now you're holding a prop, and the urge showed up anyway.</div>
   <button id="btnStop" class="btn ghost">Stop here</button>
 </div>

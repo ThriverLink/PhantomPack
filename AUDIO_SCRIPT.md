@@ -18,23 +18,26 @@ automatically; a missing file fails silently, so the app still works without it.
 
 ## Script
 
-### `shop.mp3` — Shop phase (first arrival)
-> "Welcome to Phantom Pack. This is a rehearsal — not a cigarette."
+> Revised for voice on the `voice-review` branch. The existing MP3s still carry the
+> old lines and need re-recording to match.
 
-### `opened.mp3` — Pack opened, cigarette lit
-> "Open the pack. Light it. Take your time — there's no rush here."
+### `shop.mp3` — Shop phase (first arrival)
+> "Welcome to Phantom Pack. You can pick this pack up and set it down as often as you like. You're only rehearsing."
+
+### `opened.mp3` — Pack opened, cigarette available
+> "A cigarette right in front of you makes the urge harder to sit with. That's normal, and it passes on its own. What you do next is your choice."
 
 ### `smoke.mp3` — First puff / smoke phase
-> "Bring the filter to your mouth. Each puff shows what a real one is doing inside you."
+> "Bring the filter to your mouth when you're ready. After each puff, you'll see what a real cigarette would do inside your body."
 
-### `receipt.mp3` — Damage receipt shown
-> "That's the cost of one pack. Now imagine a year of them."
+### `receipt.mp3` — Receipt shown
+> "Here's what a real one would cost. You can stop here; the choice is yours."
 
 ### `end.mp3` — End screen (any outcome)
-> "Sometimes this is how you win. The urge will come back — and so will you."
+> "The urge will show up again. When it does, this same practice is here to use."
 
 ### `thankyou.mp3` — Thank-you card (after "Done")
-> "You can take the headset off now. The pack was fake. The pause was real."
+> "You can take the headset off now. The pack was fake, but the pause you took instead of smoking was real."
 
 ## Voice direction
 - Calm, warm, low — a coach, not an announcer. Slow, with pauses.
