@@ -87,13 +87,13 @@
 <div class="panel">
   <div class="rule"></div>
   <button id="btnEnter" class="btn secondary">Enter VR</button>
-  <div class="eyebrow" id="eyebrow">PHANTOM · A FAKE PACK</div>
-  <div class="title" id="title">Buy the pack. The money is fake.</div>
-  <div class="body" id="body1">A real pack costs about $8. Every one you take home lands on your tab.</div>
-  <div class="body" id="body2">A pack a day is $2,920 a year — a holiday, a laptop, or 101 days of life.</div>
-  <div class="body-soft" id="body3">Nothing here can hurt you. Everything here is a rehearsal.</div>
-  <button id="btn1" class="btn primary">Buy the pack — $8</button>
-  <button id="btn2" class="btn secondary">Show me the math</button>
-  <button id="btn3" class="btn ghost">Leave it on the shelf</button>
-  <div class="foot" id="foot">Seated · hands only · about 5 minutes</div>
+  <div class="eyebrow" id="eyebrow">THE SHOP</div>
+  <div class="title" id="title">A pack you can practice with</div>
+  <div class="body" id="body1">A pack here costs the same as a real one: about $8 for 20 cigarettes.</div>
+  <div class="body" id="body2">Over a year, a pack a day runs to about $2,920, and takes back around 101 days of your life.</div>
+  <div class="body-soft" id="body3">You're rehearsing, not smoking, so you can pick this pack up and set it down without it costing you anything.</div>
+  <button id="btn1" class="btn primary">Buy the pack</button>
+  <button id="btn2" class="btn secondary">See the math</button>
+  <button id="btn3" class="btn ghost">Not today</button>
+  <div class="foot" id="foot">Seated, hands only, about five minutes.</div>
 </div>

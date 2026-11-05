@@ -82,44 +82,44 @@ const FACTS: BodyFact[] = [
   {
     organ: Organ.Brain,
     eyebrow: 'PUFF 1 OF 4 · BRAIN',
-    title: '10 seconds to your brain.',
-    body1: 'Nicotine reaches your brain in about 10 seconds.',
+    title: 'Ten seconds to the brain',
+    body1: 'Nicotine reaches your brain in about ten seconds.',
     body2:
-      'Dopamine spikes — the reward your habit is chasing. It fades in minutes.',
-    body3: 'Then your brain asks for more.',
-    foot: 'This is a fake cigarette. The craving is real.',
+      'Dopamine rises with it, which is the lift you feel.',
+    body3: 'Then it fades within a few minutes, and the wanting comes back.',
+    foot: "Right now you're holding a prop, and the urge showed up anyway.",
   },
   {
     organ: Organ.Heart,
     eyebrow: 'PUFF 2 OF 4 · HEART',
-    title: 'Your heart speeds up.',
+    title: 'The heart speeds up',
     body1:
-      'Within a minute, nicotine raises your heart rate and blood pressure.',
+      'Within a minute, your heart rate and blood pressure climb.',
     body2:
-      'Blood vessels narrow. Your heart works harder for the same oxygen.',
-    body3: 'A pack a day keeps that strain going all day.',
-    foot: 'You are watching the rehearsal, not the damage.',
+      'The blood vessels narrow at the same time.',
+    body3: 'So your heart works harder to move the same oxygen.',
+    foot: "You're sitting still in a rehearsal, so your heart keeps its own steady pace.",
   },
   {
     organ: Organ.Lungs,
     eyebrow: 'PUFF 3 OF 4 · LUNGS',
-    title: 'Tar starts coating your lungs.',
-    body1: 'Each puff leaves tar in the airways — 10–20 mg in a whole cigarette.',
+    title: 'Tar in the airways',
+    body1: 'A whole cigarette leaves about 10 to 20 mg of tar in your airways.',
     body2:
-      'Cilia slow down. Mucus and cough build. Smoke carries 7,000 chemicals.',
-    body3: 'Your lungs are trying to clean themselves right now.',
-    foot: 'The fake smoke clears. The real kind does not.',
+      'The cilia that sweep the lungs clean slow down, and mucus builds up.',
+    body3: "Over time that's where a smoker's cough comes from.",
+    foot: "You're breathing clean air as you practice this.",
   },
   {
     organ: Organ.Blood,
     eyebrow: 'PUFF 4 OF 4 · BLOOD',
-    title: "Carbon monoxide takes oxygen's seat.",
+    title: 'Less oxygen to carry',
     body1:
-      'CO binds hemoglobin about 200 times more strongly than oxygen does.',
+      'A cigarette puts about 10 to 20 mg of carbon monoxide into your blood.',
     body2:
-      'Your blood carries less oxygen. Your heart and muscles work harder.',
-    body3: 'A cigarette contains 10–20 mg of carbon monoxide.',
-    foot: 'Your body notices. Even when you do not.',
+      'Carbon monoxide grabs onto hemoglobin about 200 times harder than oxygen does.',
+    body3: "So your blood carries less oxygen while it's there.",
+    foot: 'You practiced the motion without taking any of that in.',
   },
 ];
 
@@ -267,12 +267,10 @@ export class PhantomSystem extends createSystem({
   private receiptDelay = -1;
   private endDelay = -1;
   private throwT = -1;
-  private throwBurst = false;
   private crushT = -1;
   private pendingEnd: EndKind = 'stopped';
 
   private streak = 0;
-  private wins = 0;
   private lastDay = '';
   private readonly todayKey = this.dayKey(new Date());
   private readonly yesterdayKey = this.dayKey(
@@ -597,13 +595,13 @@ export class PhantomSystem extends createSystem({
         this.beginSmoke();
       }
       if (this.currentPhase === Phase.Smoke) {
-        this.showHint('Filter to your mouth · hold');
+        this.showHint('Hold the filter near your mouth.');
       }
     });
     this.queries.heldCigarette.subscribe('disqualify', () => {
       this.held = false;
       if (this.currentPhase === Phase.Smoke) {
-        this.showHint('Pinch the cigarette · filter to mouth');
+        this.showHint('Pinch it, then hold the filter near your mouth.');
       }
     });
     this.cleanupFuncs.push(() => {
@@ -645,7 +643,7 @@ export class PhantomSystem extends createSystem({
           this.renderShopCopy();
         } else {
           this.pendingEnd = 'declined';
-          this.recordWin();
+          this.recordStreakDay();
           this.enterPhase(Phase.End);
         }
         break;
@@ -674,7 +672,7 @@ export class PhantomSystem extends createSystem({
           this.throwPack();
         } else {
           this.pendingEnd = 'closed';
-          this.recordWin();
+          this.recordStreakDay();
           this.enterPhase(Phase.End);
         }
         break;
@@ -752,7 +750,7 @@ export class PhantomSystem extends createSystem({
     this.audio.click();
     if (this.puffs === 0) {
       this.pendingEnd = 'stopped';
-      this.recordWin();
+      this.recordStreakDay();
       this.enterPhase(Phase.End);
       return;
     }
@@ -761,7 +759,7 @@ export class PhantomSystem extends createSystem({
 
   private finishReceipt(): void {
     this.pendingEnd = 'stopped';
-    this.recordWin();
+    this.recordStreakDay();
     this.enterPhase(Phase.End);
   }
 
@@ -779,13 +777,13 @@ export class PhantomSystem extends createSystem({
     this.enterPhase(Phase.Smoke);
     this.desktopHeld =
       this.world.visibilityState.value === VisibilityState.NonImmersive;
-    this.showHint('Pinch the cigarette');
+    this.showHint('Pinch the cigarette to pick it up.');
   }
 
   private crushCigarette(): void {
     this.audio.crush();
     this.pendingEnd = 'crushed';
-    this.recordWin();
+    this.recordStreakDay();
     this.releaseCigarette();
     this.cigaretteEntity.setValue(Cigarette, 'crushed', true);
     this.cigaretteObject.getWorldPosition(this.crushStart);
@@ -801,13 +799,11 @@ export class PhantomSystem extends createSystem({
   }
 
   private throwPack(): void {
-    this.audio.confetti();
     this.pendingEnd = 'thrown';
-    this.recordWin();
+    this.recordStreakDay();
     this.enterPhase(Phase.Thrown);
     this.packObject.position.copy(PACK_HOME);
     this.throwT = 0;
-    this.throwBurst = false;
     this.packScaleTarget = 1;
     this.endDelay = 1.7;
   }
@@ -820,27 +816,24 @@ export class PhantomSystem extends createSystem({
 
   private showThankYou(): void {
     this.audio.ensure();
-    this.audio.chime();
     this.playTrack('thankyou');
-    this.effectPosition.set(0, 1.2, -1.0);
-    this.particles.confettiBurst(this.effectPosition);
-    this.setText(this.endEyebrow, 'PHANTOM');
-    this.setText(this.endTitle, 'Thank you for staying.');
+    this.setText(this.endEyebrow, 'THANKS FOR SITTING WITH IT');
+    this.setText(this.endTitle, 'You can take the headset off now.');
     this.setText(
       this.endBody1,
-      'You can take the headset off now. The pack was fake. The pause was real.',
+      'The pack was fake, but the pause you took instead of smoking was real.',
     );
     this.setText(
       this.endBody2,
-      'Come back when the next urge needs a rehearsal.',
+      "The next urge will feel a little more familiar now that you've sat through this one.",
     );
-    this.setText(this.endBreathe, 'Start over');
+    this.setText(this.endBreathe, 'One more round');
     this.endBreathe.setProperties({ display: 'flex' });
     this.endDone.setProperties({ display: 'none' });
     this.endQuit.setProperties({ display: 'none' });
     this.setText(
       this.endCta,
-      'Visit thriverlink.com — help for you or someone you love.',
+      'More help, for you or someone you care about, is at thriverlink.com.',
     );
   }
 
@@ -914,20 +907,20 @@ export class PhantomSystem extends createSystem({
         this.hidePanel(this.endPanel);
         this.hidePanel(this.hintPanel);
         this.showPanel(this.walletTag, TAG_SCALE);
-        this.setTag(this.priceTag, 'PHANTOM · 20', '$8.00', '1 day · 20 cigarettes');
-        this.setTag(this.walletTag, 'YOUR TAB', `−$${this.totalSpent.toFixed(2)}`, 'SPENT · IT ONLY GROWS');
+        this.setTag(this.priceTag, 'PHANTOM PACK · 20', '$8.00', '1 day · 20 cigarettes');
+        this.setTag(this.walletTag, 'YOUR TAB', `−$${this.totalSpent.toFixed(2)}`, 'THE TOTAL ONLY GROWS');
         this.packScaleTarget = 1;
         this.packContactTarget = 1;
         this.lidTarget = 0;
         this.hologramTarget = 0.001;
         this.emberState(Mood.Warm);
         this.setMain(
-          'DAY 1 · THE MATH',
-          "That's one day. Now multiply it.",
-          'A pack a day for a year is $2,920 — and about 101 days of life.',
-          'Each cigarette costs about 20 minutes. A pack costs about 6.7 hours.',
-          'You can still throw it away. The money was never real. The cost is.',
-          'The average urge peaks and passes in 3–5 minutes.',
+          'WHAT A YEAR COSTS',
+          'A year of this adds up.',
+          'A pack a day is 7,300 cigarettes in a year.',
+          'That runs to about $2,920, and around 101 days of your life.',
+          'You can still throw this pack away. Nothing here has cost you anything yet.',
+          'You can take your time here.',
           ['Open the pack', true, 'primary'],
           ['Throw it away', true, 'secondary'],
           ['Put it back', true, 'ghost'],
@@ -943,7 +936,7 @@ export class PhantomSystem extends createSystem({
         this.hidePanel(this.receiptPanel);
         this.hidePanel(this.endPanel);
         this.hidePanel(this.walletTag);
-        this.setTag(this.priceTag, 'PHANTOM · 20', '$8.00', 'OPEN · 20 LEFT');
+        this.setTag(this.priceTag, 'PHANTOM PACK · 20', '$8.00', 'OPEN · 20 LEFT');
         this.packScaleTarget = 1;
         this.packContactTarget = 1;
         this.lidTarget = 1;
@@ -954,17 +947,17 @@ export class PhantomSystem extends createSystem({
         this.hologramTarget = 0.001;
         this.emberState(Mood.Concerned);
         this.setMain(
-          'THE URGE · NOT A CHARACTER FLAW',
-          'Opening is a sign of an urge.',
-          "The strong ones don't. The weak ones will smoke. That's the old story.",
-          "Here's a kinder one: this isn't about character. It's about reps. Urges peak and pass.",
-          'Close it, throw it away, or light it and watch what a real one does.',
-          'A fake cigarette. A real rehearsal.',
+          'THE URGE',
+          'Wanting one is normal.',
+          'A cigarette right in front of you makes the urge harder to sit with.',
+          "An urge isn't a sign of a weak person: it rises, peaks, and passes on its own, usually within three to five minutes.",
+          "If you've tried to quit before and it didn't hold, that wasn't a willpower problem. A plan you can lean on tends to carry you further than pushing harder does.",
+          'The choice from here is yours.',
           ['Light it', true, 'primary'],
           ['Close the pack', true, 'secondary'],
           ['Throw it away', true, 'ghost'],
         );
-        this.showHint('Pinch the cigarette');
+        this.showHint('Pinch the cigarette to pick it up.');
         break;
 
       case Phase.Closed:
@@ -974,7 +967,7 @@ export class PhantomSystem extends createSystem({
         this.hidePanel(this.receiptPanel);
         this.hidePanel(this.endPanel);
         this.hidePanel(this.walletTag);
-        this.setTag(this.priceTag, 'PHANTOM · 20', '$8.00', 'CLOSED · STILL YOURS');
+        this.setTag(this.priceTag, 'PHANTOM PACK · 20', '$8.00', 'CLOSED · STILL YOURS');
         this.packScaleTarget = 1;
         this.packContactTarget = 1;
         this.lidTarget = 0;
@@ -985,11 +978,11 @@ export class PhantomSystem extends createSystem({
         this.emberState(Mood.Calm);
         this.setMain(
           'THE PAUSE',
-          'Closing it is a decision too.',
-          "The urge doesn't vanish because a pack is closed. But every time you close it, you practice the pause.",
-          "That's the rep. Not perfection — repetition.",
+          'You closed the pack.',
+          'You felt the urge and closed it instead of lighting up.',
+          'No willpower required: you let the craving pass without acting on it.',
+          "Next time will be a little easier, now that you've done it once.",
           'Open it again, throw it away, or stop here.',
-          'Willpower is a muscle. This is a rep.',
           ['Open it again', true, 'primary'],
           ['Throw it away', true, 'secondary'],
           ["I'm done", true, 'ghost'],
@@ -1015,15 +1008,15 @@ export class PhantomSystem extends createSystem({
         this.setMain(
           'THE REHEARSAL · 4 PUFFS',
           'Bring the filter to your mouth.',
-          'Pinch the cigarette, then hold the filter near your mouth for a moment.',
-          'Each puff shows what a real one would be doing inside you.',
+          'Pinch the cigarette, hold it near your mouth for a moment, then take the puff.',
+          "After each puff, you'll see what a real one does inside the body.",
           'You can stop after any puff.',
-          'Hands: pinch and hold · Web: press Take a puff',
+          'Hands: pinch and hold. On web: press the button.',
           ['Take a puff', true, 'primary'],
           ['Stop here', true, 'secondary'],
           ['', false, 'ghost'],
         );
-        this.showHint('Pinch the cigarette · filter to mouth');
+        this.showHint('Pinch it, then hold the filter near your mouth.');
         break;
 
       case Phase.Receipt:
@@ -1081,45 +1074,44 @@ export class PhantomSystem extends createSystem({
   private renderShopCopy(): void {
     if (this.shopMath) {
       this.setMain(
-        'THE MATH · A PACK A DAY',
-        'Small number. Big year.',
-        '20 cigarettes × 365 days = 7,300 cigarettes.',
-        'At $8 a pack: $2,920 a year. At 20 minutes each: about 101 days of life.',
+        'THE MATH',
+        'A year, counted out',
+        'A pack a day is 20 cigarettes, 365 days: 7,300 cigarettes in a year.',
+        'Those cigarettes cost about $2,920, and roughly 101 days of your life.',
         this.totalSpent > 0
-          ? `Your tab so far: $${this.totalSpent}. It only ever goes up.`
-          : 'Every pack you buy lands on the same tab.',
-        'Tap the button again to go back.',
-        ['Buy the pack — $8', true, 'primary'],
-        ['Back', true, 'secondary'],
-        ["I'd rather not", true, 'ghost'],
+          ? `Your tab so far: $${this.totalSpent}. A real tab would keep adding up.`
+          : 'Buy one pack a day and the total keeps growing: more money, more days gone.',
+        'Back takes you to the counter.',
+        ['Buy the pack', true, 'primary'],
+        ['Back to the shop', true, 'secondary'],
+        ['Not today', true, 'ghost'],
       );
       return;
     }
     if (this.totalSpent > 0) {
-      const packs = this.totalSpent / 8;
       this.setMain(
-        `PHANTOM · PACK ${packs + 1}`,
-        'Back for another one?',
-        `Your tab is at $${this.totalSpent} — ${packs} pack${packs === 1 ? '' : 's'} and it only goes up.`,
-        "A real pack a day is $2,920 a year. The tab keeps its own ledger.",
-        'Nothing here can hurt you. Everything here is a rehearsal.',
-        'Seated · hands only · about 5 minutes',
-        ['Buy the pack — $8', true, 'primary'],
-        ['Show me the math', true, 'secondary'],
-        ['Leave it on the shelf', true, 'ghost'],
+        'BACK AT THE COUNTER',
+        'Another pack',
+        `Your tab so far: $${this.totalSpent}.`,
+        'At a pack a day, a year of this is about $2,920 and around 101 days of your life.',
+        'Same counter, same practice, and the money is still make-believe.',
+        'Seated, hands only, about five minutes.',
+        ['Buy another', true, 'primary'],
+        ['See the math', true, 'secondary'],
+        ['Not today', true, 'ghost'],
       );
       return;
     }
     this.setMain(
-      'PHANTOM · A FAKE PACK',
-      'Buy the pack.',
-      'A real pack costs about $8. Every one you take home lands on your tab.',
-      'A pack a day is $2,920 a year — a holiday, a laptop, or 101 days of life.',
-      'Nothing here can hurt you. Everything here is a rehearsal.',
-      'Seated · hands only · about 5 minutes',
-      ['Buy the pack — $8', true, 'primary'],
-      ['Show me the math', true, 'secondary'],
-      ['Leave it on the shelf', true, 'ghost'],
+      'THE SHOP',
+      'A pack you can practice with',
+      'A pack here costs the same as a real one: about $8 for 20 cigarettes.',
+      'Over a year, a pack a day runs to about $2,920, and takes back around 101 days of your life.',
+      "You're rehearsing, not smoking, so you can pick this pack up and set it down without it costing you anything.",
+      'Seated, hands only, about five minutes.',
+      ['Buy the pack', true, 'primary'],
+      ['See the math', true, 'secondary'],
+      ['Not today', true, 'ghost'],
     );
   }
 
@@ -1197,7 +1189,7 @@ export class PhantomSystem extends createSystem({
     const nicHigh = (puffs * 0.2).toFixed(1);
     this.setText(
       this.receiptSubtitle,
-      `You took ${puffs} puff${puffs === 1 ? '' : 's'} — about ${(puffs / 10).toFixed(1)} of a cigarette.`,
+      `You sat through this one. You took ${puffs} puff${puffs === 1 ? '' : 's'}, about ${(puffs / 10).toFixed(1)} of a cigarette.`,
     );
     this.setText(this.receiptStats[0], `${life} min`);
     this.setText(this.receiptStats[1], `${tarLow}–${tarHigh} mg`);
@@ -1205,22 +1197,20 @@ export class PhantomSystem extends createSystem({
     this.setText(this.receiptStats[3], `${nicLow}–${nicHigh} mg`);
     this.setText(
       this.receiptBody1,
-      'A whole pack: about 6.7 hours of life, 200–400 mg tar, $8, and 7,000 chemicals.',
+      'A whole cigarette would cost closer to 20 minutes of life; the full pack is about 6.7 hours of life and 200 to 400 mg of tar, for your $8.',
     );
     this.setText(
       this.receiptBody2,
-      'A pack a day for a year: roughly 101 days of life and $2,920.',
+      'A pack a day for a year comes to about 101 days of your life and $2,920.',
     );
     this.setText(
       this.receiptBody3,
-      'You are not a number. You are allowed to stop.',
+      "You can stop here. That's a real choice, and it's yours to make.",
     );
   }
 
   private renderEnd(): void {
-    const day = Math.max(1, this.streak);
-    const winWord = this.wins === 1 ? 'WIN' : 'WINS';
-    this.setText(this.endEyebrow, `DAY ${day} · ${this.wins} ${winWord}`);
+    this.setText(this.endEyebrow, 'BEFORE YOU TAKE IT OFF');
     this.setText(this.endBreathe, 'Go again');
     this.endBreathe.setProperties({ display: 'flex' });
     this.setText(this.endDone, 'Done');
@@ -1229,11 +1219,11 @@ export class PhantomSystem extends createSystem({
     this.endQuit.setProperties({ display: 'flex' });
     this.setText(
       this.endCta,
-      'Visit thriverlink.com — help for you or someone you love.',
+      'If you or someone you care about wants a hand with this, thriverlink.com is there.',
     );
     this.setText(
       this.endFact,
-      'In 20 minutes, your heart rate starts to drop. In 12 hours, carbon monoxide levels return to normal.',
+      "Real recovery starts when you actually stop: heart rate begins to drop within 20 minutes, and carbon monoxide in your blood returns to normal within 12 hours (NHS). A rehearsal doesn't change your body.",
     );
 
     switch (this.pendingEnd) {
@@ -1241,33 +1231,33 @@ export class PhantomSystem extends createSystem({
         this.setText(this.endTitle, 'You threw it away.');
         this.setText(
           this.endBody1,
-          "That's $8 and about 6.7 hours of damage you didn't spend.",
+          'You felt the urge, picked up the pack, and got rid of it without lighting one.',
         );
-        this.setText(this.endBody2, 'Sometimes this is how you win. The urge will come back — so will you.');
+        this.setText(this.endBody2, 'The urge will show up again, and when it does, this same practice is here to use.');
         break;
       case 'crushed':
         this.setText(this.endTitle, 'You crushed it.');
         this.setText(
           this.endBody1,
-          "You smoked the rehearsal, then chose to stop. That's the skill.",
+          'You tried a few puffs, then put it out. Stopping partway is a choice too.',
         );
-        this.setText(this.endBody2, 'Sometimes this is how you win. The urge will come back — so will you.');
+        this.setText(this.endBody2, 'The urge will show up again, and when it does, this same practice is here to use.');
         break;
       case 'declined':
         this.setText(this.endTitle, 'You left it on the shelf.');
         this.setText(
           this.endBody1,
-          "You didn't spend the $8. You didn't spend the 6.7 hours.",
+          'You stood at the counter and walked without buying.',
         );
-        this.setText(this.endBody2, 'Sometimes this is how you win. The urge will come back — so will you.');
+        this.setText(this.endBody2, 'The urge will show up again, and when it does, this same practice is here to use.');
         break;
       case 'closed':
         this.setText(this.endTitle, 'You closed it.');
         this.setText(
           this.endBody1,
-          "You practiced the pause. That's the skill.",
+          'You had it open and chose to close it instead of lighting up.',
         );
-        this.setText(this.endBody2, 'Sometimes this is how you win. The urge will come back — so will you.');
+        this.setText(this.endBody2, 'The urge will show up again, and when it does, this same practice is here to use.');
         break;
       case 'stopped':
         this.setText(
@@ -1279,10 +1269,10 @@ export class PhantomSystem extends createSystem({
         this.setText(
           this.endBody1,
           this.puffs === 0
-            ? "You noticed the urge and put it down. That's the skill."
-            : `You took ${this.puffs} puff${this.puffs === 1 ? '' : 's'} and then chose to stop. That's the skill.`,
+            ? 'You lit it and set it down before taking a puff.'
+            : `You took ${this.puffs} puff${this.puffs === 1 ? '' : 's'} and then stopped. You can stop at any point.`,
         );
-        this.setText(this.endBody2, 'Sometimes this is how you win. The urge will come back — so will you.');
+        this.setText(this.endBody2, 'The urge will show up again, and when it does, this same practice is here to use.');
         break;
       default:
         break;
@@ -1528,7 +1518,7 @@ export class PhantomSystem extends createSystem({
       return;
     }
     if (this.puffCooldown > 0) {
-      this.showHint('One breath at a time — next puff in a moment');
+      this.showHint('No rush: the next puff can wait as long as you like.');
       return;
     }
     this.desktopHeld =
@@ -1600,12 +1590,6 @@ export class PhantomSystem extends createSystem({
       );
       this.packObject.rotation.y = 0.3 + t * 2.4;
       this.packObject.rotation.z = Math.sin(Math.PI * t) * 0.5;
-      if (!this.throwBurst && t > 0.72) {
-        this.throwBurst = true;
-        this.effectPosition.copy(BIN_TARGET);
-        this.effectPosition.y += 0.1;
-        this.particles.confettiBurst(this.effectPosition);
-      }
       if (this.throwT >= 1) {
         this.throwT = -1;
         this.packObject.visible = false;
@@ -1804,13 +1788,11 @@ export class PhantomSystem extends createSystem({
 
   private loadStreak(): void {
     try {
-      const wins = Number(window.localStorage.getItem('phantom.wins') ?? '0');
       const streak = Number(window.localStorage.getItem('phantom.streak') ?? '0');
       const lastDay = window.localStorage.getItem('phantom.lastDay') ?? '';
       const spent = Number(
         window.localStorage.getItem('phantom.totalSpent') ?? '0',
       );
-      this.wins = Number.isFinite(wins) ? wins : 0;
       this.streak = Number.isFinite(streak) ? streak : 0;
       this.totalSpent = Number.isFinite(spent) ? spent : 0;
       this.lastDay = lastDay;
@@ -1818,30 +1800,23 @@ export class PhantomSystem extends createSystem({
         this.streak = 0;
       }
     } catch {
-      this.wins = 0;
       this.streak = 0;
       this.lastDay = '';
     }
-    this.sessionEntity.setValue(Session, 'wins', this.wins);
     this.sessionEntity.setValue(Session, 'streak', this.streak);
   }
 
-  private recordWin(): void {
+  private recordStreakDay(): void {
     if (this.lastDay === this.todayKey) {
-      this.wins += 1;
       this.streak = Math.max(1, this.streak);
     } else if (this.lastDay === this.yesterdayKey) {
       this.streak += 1;
-      this.wins += 1;
     } else {
       this.streak = 1;
-      this.wins += 1;
     }
     this.lastDay = this.todayKey;
-    this.sessionEntity.setValue(Session, 'wins', this.wins);
     this.sessionEntity.setValue(Session, 'streak', this.streak);
     try {
-      window.localStorage.setItem('phantom.wins', String(this.wins));
       window.localStorage.setItem('phantom.streak', String(this.streak));
       window.localStorage.setItem('phantom.lastDay', this.lastDay);
     } catch {

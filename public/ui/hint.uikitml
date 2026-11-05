@@ -29,5 +29,5 @@
 </style>
 <div class="hint">
   <div class="dot"></div>
-  <div class="text" id="hintText">Pinch the cigarette</div>
+  <div class="text" id="hintText">Pinch the cigarette to pick it up.</div>
 </div>

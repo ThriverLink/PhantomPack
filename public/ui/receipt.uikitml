@@ -125,8 +125,8 @@
 </style>
 <div class="panel">
   <div class="eyebrow" id="eyebrow">THE RECEIPT</div>
-  <div class="title" id="title">This is what a real one costs.</div>
-  <div class="subtitle" id="subtitle">You took 4 puffs — about 0.4 of a cigarette.</div>
+  <div class="title" id="title">What a real one would cost</div>
+  <div class="subtitle" id="subtitle">You sat through this one. You took 4 puffs, about 0.4 of a cigarette.</div>
   <div class="stats">
     <div class="stat"><div class="num" id="stat1">8 min</div><div class="lbl">of life</div></div>
     <div class="stat"><div class="num" id="stat2">4–8 mg</div><div class="lbl">tar</div></div>
@@ -134,9 +134,9 @@
     <div class="stat"><div class="num" id="stat4">0.4–0.8 mg</div><div class="lbl">nicotine</div></div>
   </div>
   <div class="rule"></div>
-  <div class="body" id="body1">A whole pack: about 6.7 hours of life, 200–400 mg tar, $8, and 7,000 chemicals.</div>
-  <div class="body" id="body2">A pack a day for a year: roughly 101 days of life and $2,920.</div>
-  <div class="body-soft" id="body3">You are not a number. You are allowed to stop.</div>
+  <div class="body" id="body1">A whole cigarette would cost closer to 20 minutes of life; the full pack is about 6.7 hours of life and 200 to 400 mg of tar, for your $8.</div>
+  <div class="body" id="body2">A pack a day for a year comes to about 101 days of your life and $2,920.</div>
+  <div class="body-soft" id="body3">You can stop here. That's a real choice, and it's yours to make.</div>
   <div class="foot">Estimates. Sources: UCL 2024, CDC, WHO.</div>
   <div class="actions">
     <button id="btnCrush" class="btn primary">Crush it</button>
